@@ -1,0 +1,82 @@
+﻿@model Gestmove.Models.tb_viagem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tb_viagem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.data_saida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data_saida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prev_chegada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prev_chegada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data_chegada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data_chegada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_pessoa.nome_abreviado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_pessoa.nome_abreviado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_pessoa1.nome_abreviado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_pessoa1.nome_abreviado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_veiculo.proprio_alugado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_veiculo.proprio_alugado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.cod_viagem }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,46 @@
+﻿/**
+ *Anotações de cores
+ 
+ *azul: #001f3e;
+   
+ *@author: Nicolas Campos
+*/
+
+
+/*
+    *Menu top
+*/
+.app-header .navbar-nav .nav-item .nav-link h5 {
+    color: #001f3e;
+    font-weight: 400;
+}
+
+.app-body .sidebar {
+    background-color: #001f3e !important;
+}
+
+.app-body .sidebar .sidebar-nav .divider {
+    height: 10px;
+    border-bottom: 1px solid #7d7d7d87;
+}
+
+/**
+   * Tela de Login
+*/
+.container-login .card-login {
+    margin-top: 25%;
+}
+
+    .container-login .card-login .card-header {
+        background-color: #001f3e;
+    }
+
+        .container-login .card-login .card-header h1 {
+            color: #fff;
+        }
+
+    .container-login .card-login .card-body .btn-entrar {
+        background-color: #001f3e;
+        color: #fff;
+        height: 45px;
+    }

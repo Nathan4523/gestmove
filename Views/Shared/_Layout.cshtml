@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title - Gestmove</title>
+    @Styles.Render("~/node_modules/@coreui/icons/css/coreui-icons.min.css")
+    @Styles.Render("~/node_modules/flag-icon-css/css/flag-icon.min.css")
+    @Styles.Render("~/node_modules/font-awesome/css/font-awesome.min.css")
+    @Styles.Render("~/node_modules/simple-line-icons/css/simple-line-icons.css")
+    @Styles.Render("~/node_modules/bootstrap/dist/css/bootstrap.min.css")
+    @Styles.Render("~/Content/style-template.css")
+
+    @Styles.Render("~/Content/style.css")
+</head>
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <header class="app-header navbar">
+            <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img class="navbar-brand-full" src="img/brand/logo.svg" width="89" height="25" alt="Gestmove">
+                <img class="navbar-brand-minimized" src="img/brand/sygnet.svg" width="30" height="30" alt="Gestmove">
+            </a>
+            <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <ul class="nav navbar-nav ml-auto mr-5">
+                <li class="nav-item dropdown">
+                    <a class="nav-link">
+                        <h5 class="mb-0"><i class="fas fa-user mr-2"></i> Olá <strong>@(User.Identity.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Convidado")</strong></h5>
+                    </a>
+                </li>
+            </ul>
+        </header>
+    }
+
+
+<div class="app-body">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav pt-2">
+                    <li class="nav-title">Administração</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="nav-icon icon-speedometer"></i> Dashboard
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="colors.html">
+                            <i class="fas fa-users nav-icon"></i> Clientes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="typography.html">
+                            <i class="far fa-building nav-icon"></i> Fornecedores
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="typography.html">
+                            <i class="fas fa-address-card nav-icon"></i> Motoristas
+                        </a>
+                    </li>
+
+                    <li class="nav-title">Funcionalidades</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="charts.html">
+                            <i class="fas fa-car nav-icon"></i> Veículos
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="charts.html">
+                            <i class="fas fa-route nav-icon"></i> Viagens
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="charts.html">
+                            <i class="fas fa-gas-pump nav-icon"></i> Abastecimentos
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="charts.html">
+                            <i class="fas fa-hammer nav-icon"></i> Manutenções
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="charts.html">
+                            <i class="fas fa-file-signature nav-icon"></i> Ocorrências
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="charts.html">
+                            <i class="fas fa-broadcast-tower nav-icon"></i> Locações
+                        </a>
+                    </li>
+
+                    <li class="divider"></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("SignOut","Home")">
+                            <i class="fas fa-power-off nav-icon"></i> Sair
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+        </div>
+    }
+
+    @*Conteudo central do painel*@
+
+    @*Conteudo central do painel - Antes do login*@
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <main class="main" style="margin-left: 0px;">
+            @RenderBody()
+        </main>
+    }
+
+    @*Conteudo central do painel - Depois do login*@
+    @if (User.Identity.IsAuthenticated)
+    {
+        <main class="main">
+            @RenderBody()
+        </main>
+    }
+
+</div>
+
+    @Scripts.Render("~/node_modules/jquery/dist/jquery.min.js")
+    @Scripts.Render("~/node_modules/popper.js/dist/umd/popper.min.js")
+    @Scripts.Render("~/node_modules/bootstrap/dist/js/bootstrap.min.js")
+    @Scripts.Render("~/node_modules/pace-progress/pace.min.js")
+    @Scripts.Render("~/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js")
+    @Scripts.Render("~/node_modules/@coreui/coreui/dist/js/coreui.min.js")
+    @Scripts.Render("~/node_modules/@fortawesome/fontawesome-free/js/all.min.js")
+    @Scripts.Render("~/Scripts/main-template.js")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bd_gestmoveModelStoreContainer" CdmEntityContainer="bd_gestmoveEntities">
+    <EntitySetMapping Name="tb_abastecimento">
+      <EntityTypeMapping TypeName="bd_gestmoveModel.tb_abastecimento">
+        <MappingFragment StoreEntitySet="tb_abastecimento">
+          <ScalarProperty Name="cod_abastecimento" ColumnName="cod_abastecimento" />
+          <ScalarProperty Name="cod_veiculo" ColumnName="cod_veiculo" />
+          <ScalarProperty Name="cod_posto" ColumnName="cod_posto" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="litros" ColumnName="litros" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_empresa">
+      <EntityTypeMapping TypeName="bd_gestmoveModel.tb_empresa">
+        <MappingFragment StoreEntitySet="tb_empresa">
+          <ScalarProperty Name="ID_empresa" ColumnName="ID_empresa" />
+          <ScalarProperty Name="nome_abreviado" ColumnName="nome_abreviado" />
+          <ScalarProperty Name="razao_social" ColumnName="razao_social" />
+          <ScalarProperty Name="cnpj" ColumnName="cnpj" />
+          <ScalarProperty Name="ie" ColumnName="ie" />
+          <ScalarProperty Name="logradouro" ColumnName="logradouro" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="compl" ColumnName="compl" />
+          <ScalarProperty Name="cep" ColumnName="cep" />
+          <ScalarProperty Name="bairro" ColumnName="bairro" />
+          <ScalarProperty Name="municipio" ColumnName="municipio" />
+          <ScalarProperty Name="uf" ColumnName="uf" />
+          <ScalarProperty Name="regiao" ColumnName="regiao" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="contato" ColumnName="contato" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="observacao" ColumnName="observacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_locacao">
+      <EntityTypeMapping TypeName="bd_gestmoveModel.tb_locacao">
+        <MappingFragment StoreEntitySet="tb_locacao">
+          <ScalarProperty Name="cod_locacao" ColumnName="cod_locacao" />
+          <ScalarProperty Name="cod_pessoa" ColumnName="cod_pessoa" />
+          <ScalarProperty Name="cod_veiculo" ColumnName="cod_veiculo" />
+          <ScalarProperty Name="data_locacao" ColumnName="data_locacao" />
+          <ScalarProperty Name="data_entrega" ColumnName="data_entrega" />
+          <ScalarProperty Name="qtd_dias" ColumnName="qtd_dias" />
+          <ScalarProperty Name="km_original" ColumnName="km_original" />
+          <ScalarProperty Name="km_nova" ColumnName="km_nova" />
+          <ScalarProperty Name="valor_locacao" ColumnName="valor_locacao" />
+          <ScalarProperty Name="NF" ColumnName="NF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_login">
+      <EntityTypeMapping TypeName="bd_gestmoveModel.tb_login">
+        <MappingFragment StoreEntitySet="tb_login">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="nv_user" ColumnName="nv_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_manutencao">
+      <EntityTypeMapping TypeName="bd_gestmoveModel.tb_manutencao">
+        <MappingFragment StoreEntitySet="tb_manutencao">
+          <ScalarProperty Name="cod_manutencao" ColumnName="cod_manutencao" />
+          <ScalarProperty Name="cod_veiculo" ColumnName="cod_veiculo" />
+          <ScalarProperty Name="cod_oficina" ColumnName="cod_oficina" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="motivo" ColumnName="motivo" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_pessoa">
+      <EntityTypeMapping TypeName="bd_gestmoveModel.tb_pessoa">
+        <MappingFragment StoreEntitySet="tb_pessoa">
+          <ScalarProperty Name="ID_pessoa" ColumnName="ID_pessoa" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="nome_abreviado" ColumnName="nome_abreviado" />
+          <ScalarProperty Name="razao_social" ColumnName="razao_social" />
+          <ScalarProperty Name="f_j" ColumnName="f_j" />
+          <ScalarProperty Name="rg_cnpj" ColumnName="rg_cnpj" />
+          <ScalarProperty Name="cpf_ie" ColumnName="cpf_ie" />
+          <ScalarProperty Name="logradouro" ColumnName="logradouro" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="compl" ColumnName="compl" />
+          <ScalarProperty Name="cep" ColumnName="cep" />
+          <ScalarProperty Name="bairro" ColumnName="bairro" />
+          <ScalarProperty Name="municipio" ColumnName="municipio" />
+          <ScalarProperty Name="uf" ColumnName="uf" />
+          <ScalarProperty Name="regiao" ColumnName="regiao" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="tipo_carteira" ColumnName="tipo_carteira" />
+          <ScalarProperty Name="cnh" ColumnName="cnh" />
+          <ScalarProperty Name="pontos_carteira" ColumnName="pontos_carteira" />
+          <ScalarProperty Name="data_contratacao" ColumnName="data_contratacao" />
+          <ScalarProperty Name="tipo_fornec_msa" ColumnName="tipo_fornec_msa" />
+          <ScalarProperty Name="tipo_msa1" ColumnName="tipo_msa1" />
+          <ScalarProperty Name="tipo_msa2" ColumnName="tipo_msa2" />
+          <ScalarProperty Name="tipo_msa3" ColumnName="tipo_msa3" />
+          <ScalarProperty Name="observacao" ColumnName="observacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_posto">
+      <EntityTypeMapping TypeName="bd_gestmoveModel.tb_posto">
+        <MappingFragment StoreEntitySet="tb_posto">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="nome_abreviado" ColumnName="nome_abreviado" />
+          <ScalarProperty Name="razao_social" ColumnName="razao_social" />
+          <ScalarProperty Name="logradouro" ColumnName="logradouro" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="compl" ColumnName="compl" />
+          <ScalarProperty Name="cep" ColumnName="cep" />
+          <ScalarProperty Name="bairro" ColumnName="bairro" />
+          <ScalarProperty Name="municipio" ColumnName="municipio" />
+          <ScalarProperty Name="uf" ColumnName="uf" />
+          <ScalarProperty Name="regiao" ColumnName="regiao" />
+          <ScalarProperty Name="observacao" ColumnName="observacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_veiculo">
+      <EntityTypeMapping TypeName="bd_gestmoveModel.tb_veiculo">
+        <MappingFragment StoreEntitySet="tb_veiculo">
+          <ScalarProperty Name="cod_veiculo" ColumnName="cod_veiculo" />
+          <ScalarProperty Name="proprio_alugado" ColumnName="proprio_alugado" />
+          <ScalarProperty Name="cod_fornecedor" ColumnName="cod_fornecedor" />
+          <ScalarProperty Name="placa" ColumnName="placa" />
+          <ScalarProperty Name="uf" ColumnName="uf" />
+          <ScalarProperty Name="chassi" ColumnName="chassi" />
+          <ScalarProperty Name="tipo_chassi" ColumnName="tipo_chassi" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="modelo" ColumnName="modelo" />
+          <ScalarProperty Name="cor" ColumnName="cor" />
+          <ScalarProperty Name="km" ColumnName="km" />
+          <ScalarProperty Name="combustivel" ColumnName="combustivel" />
+          <ScalarProperty Name="observacao" ColumnName="observacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_viagem">
+      <EntityTypeMapping TypeName="bd_gestmoveModel.tb_viagem">
+        <MappingFragment StoreEntitySet="tb_viagem">
+          <ScalarProperty Name="cod_viagem" ColumnName="cod_viagem" />
+          <ScalarProperty Name="cod_motorista" ColumnName="cod_motorista" />
+          <ScalarProperty Name="cod_cliente" ColumnName="cod_cliente" />
+          <ScalarProperty Name="cod_veiculo" ColumnName="cod_veiculo" />
+          <ScalarProperty Name="data_saida" ColumnName="data_saida" />
+          <ScalarProperty Name="prev_chegada" ColumnName="prev_chegada" />
+          <ScalarProperty Name="data_chegada" ColumnName="data_chegada" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="NF" ColumnName="NF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

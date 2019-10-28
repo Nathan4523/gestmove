@@ -1,0 +1,120 @@
+﻿@model Gestmove.Models.tb_veiculo
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>tb_veiculo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.proprio_alugado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proprio_alugado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cod_fornecedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cod_fornecedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.placa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.uf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.chassi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.chassi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_chassi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_chassi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.km)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.km)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.combustivel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.combustivel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observacao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

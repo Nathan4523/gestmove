@@ -1,0 +1,55 @@
+﻿@model Gestmove.Models.tb_login
+@{
+    ViewBag.Title = "Auth";
+}
+
+@using (Html.BeginForm("Auth", "Home", new { returnUrl = Request.QueryString["ReturnUrl"] }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <section class="container-login">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <div class="card-group">
+                        <div class="card card-login">
+                            <div class="card-header text-center">
+                                <h1 class="mb-0">GESTMOVE</h1>
+                            </div>
+                            <div class="card-body p-5">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="icon-user"></i>
+                                        </span>
+                                    </div>
+                                    @Html.EditorFor(model => model.usuario, new { htmlAttributes = new { @class = "form-control", @placeholder = "LOGIN" } })
+                                    @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })
+
+                                </div>
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="icon-lock"></i>
+                                        </span>
+                                    </div>
+                                    @Html.EditorFor(model => model.senha, new { htmlAttributes = new { @class = "form-control", @placeholder = "SENHA", @type = "password" } })
+                                    @Html.ValidationMessageFor(model => model.senha, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <button class="btn btn-entrar px-4" type="submit">ENTRAR</button>
+                                    </div>
+                                    @*<div class="col-6 text-right">
+                                    <button class="btn btn-link px-0" type="button">Forgot password?</button>
+                                </div>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}

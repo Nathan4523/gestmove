@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bd_gestmoveModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tb_abastecimento">
+    <Key>
+      <PropertyRef Name="cod_abastecimento" />
+    </Key>
+    <Property Name="cod_abastecimento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cod_veiculo" Type="Int32" Nullable="false" />
+    <Property Name="cod_posto" Type="Int32" Nullable="false" />
+    <Property Name="data" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="litros" Type="Int32" Nullable="false" />
+    <Property Name="valor" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_empresa">
+    <Key>
+      <PropertyRef Name="ID_empresa" />
+    </Key>
+    <Property Name="ID_empresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome_abreviado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="razao_social" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cnpj" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ie" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="logradouro" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="numero" Type="Int32" Nullable="false" />
+    <Property Name="compl" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="cep" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="bairro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="municipio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="uf" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="regiao" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="telefone" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="celular" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Name="contato" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="observacao" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_locacao">
+    <Key>
+      <PropertyRef Name="cod_locacao" />
+    </Key>
+    <Property Name="cod_locacao" Type="Int32" Nullable="false" />
+    <Property Name="cod_pessoa" Type="Int32" Nullable="false" />
+    <Property Name="cod_veiculo" Type="Int32" Nullable="false" />
+    <Property Name="data_locacao" Type="Int32" Nullable="false" />
+    <Property Name="data_entrega" Type="Int32" />
+    <Property Name="qtd_dias" Type="Int32" />
+    <Property Name="km_original" Type="Int32" />
+    <Property Name="km_nova" Type="Int32" />
+    <Property Name="valor_locacao" Type="Int32" Nullable="false" />
+    <Property Name="NF" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_pessoa" Relationship="Self.FK_tb_locacao_tb_pessoa" FromRole="tb_locacao" ToRole="tb_pessoa" />
+    <NavigationProperty Name="tb_veiculo" Relationship="Self.FK_tb_locacao_tb_veiculo" FromRole="tb_locacao" ToRole="tb_veiculo" />
+  </EntityType>
+  <EntityType Name="tb_login">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="senha" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nv_user" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tb_manutencao">
+    <Key>
+      <PropertyRef Name="cod_manutencao" />
+    </Key>
+    <Property Name="cod_manutencao" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cod_veiculo" Type="Int32" />
+    <Property Name="cod_oficina" Type="Int32" />
+    <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="motivo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="data" Type="DateTime" Precision="0" />
+    <Property Name="valor" Type="Double" />
+    <NavigationProperty Name="tb_pessoa" Relationship="Self.FK_tb_manutencao_tb_pessoa" FromRole="tb_manutencao" ToRole="tb_pessoa" />
+    <NavigationProperty Name="tb_veiculo" Relationship="Self.FK_tb_manutencao_tb_veiculo" FromRole="tb_manutencao" ToRole="tb_veiculo" />
+  </EntityType>
+  <EntityType Name="tb_pessoa">
+    <Key>
+      <PropertyRef Name="ID_pessoa" />
+    </Key>
+    <Property Name="ID_pessoa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo" Type="Int32" Nullable="false" />
+    <Property Name="nome_abreviado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="razao_social" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="f_j" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="rg_cnpj" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cpf_ie" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="logradouro" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="numero" Type="Int32" Nullable="false" />
+    <Property Name="compl" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="cep" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="bairro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="municipio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="uf" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="regiao" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="telefone" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="celular" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_carteira" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="cnh" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="pontos_carteira" Type="Int32" />
+    <Property Name="data_contratacao" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="tipo_fornec_msa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_msa1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_msa2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_msa3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="observacao" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_locacao" Relationship="Self.FK_tb_locacao_tb_pessoa" FromRole="tb_pessoa" ToRole="tb_locacao" />
+    <NavigationProperty Name="tb_manutencao" Relationship="Self.FK_tb_manutencao_tb_pessoa" FromRole="tb_pessoa" ToRole="tb_manutencao" />
+    <NavigationProperty Name="tb_viagem" Relationship="Self.FK_tb_viagem_tb_pessoa" FromRole="tb_pessoa" ToRole="tb_viagem" />
+    <NavigationProperty Name="tb_viagem1" Relationship="Self.FK_tb_viagem_tb_pessoa_02" FromRole="tb_pessoa" ToRole="tb_viagem" />
+  </EntityType>
+  <EntityType Name="tb_posto">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome_abreviado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="razao_social" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="logradouro" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="numero" Type="Int32" Nullable="false" />
+    <Property Name="compl" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="cep" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="bairro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="municipio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="uf" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="regiao" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="observacao" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tb_veiculo">
+    <Key>
+      <PropertyRef Name="cod_veiculo" />
+    </Key>
+    <Property Name="cod_veiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="proprio_alugado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cod_fornecedor" Type="Int32" />
+    <Property Name="placa" Type="String" MaxLength="7" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="uf" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="chassi" Type="String" MaxLength="17" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="tipo_chassi" Type="Int32" Nullable="false" />
+    <Property Name="marca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="modelo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="km" Type="Int32" />
+    <Property Name="combustivel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="observacao" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_locacao" Relationship="Self.FK_tb_locacao_tb_veiculo" FromRole="tb_veiculo" ToRole="tb_locacao" />
+    <NavigationProperty Name="tb_manutencao" Relationship="Self.FK_tb_manutencao_tb_veiculo" FromRole="tb_veiculo" ToRole="tb_manutencao" />
+    <NavigationProperty Name="tb_viagem" Relationship="Self.FK_tb_viagem_tb_veiculo" FromRole="tb_veiculo" ToRole="tb_viagem" />
+  </EntityType>
+  <EntityType Name="tb_viagem">
+    <Key>
+      <PropertyRef Name="cod_viagem" />
+    </Key>
+    <Property Name="cod_viagem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cod_motorista" Type="Int32" Nullable="false" />
+    <Property Name="cod_cliente" Type="Int32" Nullable="false" />
+    <Property Name="cod_veiculo" Type="Int32" Nullable="false" />
+    <Property Name="data_saida" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="prev_chegada" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="data_chegada" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="valor" Type="Double" Nullable="false" />
+    <Property Name="NF" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_pessoa" Relationship="Self.FK_tb_viagem_tb_pessoa" FromRole="tb_viagem" ToRole="tb_pessoa" />
+    <NavigationProperty Name="tb_pessoa1" Relationship="Self.FK_tb_viagem_tb_pessoa_02" FromRole="tb_viagem" ToRole="tb_pessoa" />
+    <NavigationProperty Name="tb_veiculo" Relationship="Self.FK_tb_viagem_tb_veiculo" FromRole="tb_viagem" ToRole="tb_veiculo" />
+  </EntityType>
+  <Association Name="FK_tb_locacao_tb_pessoa">
+    <End Role="tb_pessoa" Type="Self.tb_pessoa" Multiplicity="1" />
+    <End Role="tb_locacao" Type="Self.tb_locacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_pessoa">
+        <PropertyRef Name="ID_pessoa" />
+      </Principal>
+      <Dependent Role="tb_locacao">
+        <PropertyRef Name="cod_pessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_locacao_tb_veiculo">
+    <End Role="tb_veiculo" Type="Self.tb_veiculo" Multiplicity="1" />
+    <End Role="tb_locacao" Type="Self.tb_locacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_veiculo">
+        <PropertyRef Name="cod_veiculo" />
+      </Principal>
+      <Dependent Role="tb_locacao">
+        <PropertyRef Name="cod_veiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_manutencao_tb_pessoa">
+    <End Role="tb_pessoa" Type="Self.tb_pessoa" Multiplicity="0..1" />
+    <End Role="tb_manutencao" Type="Self.tb_manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_pessoa">
+        <PropertyRef Name="ID_pessoa" />
+      </Principal>
+      <Dependent Role="tb_manutencao">
+        <PropertyRef Name="cod_oficina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_manutencao_tb_veiculo">
+    <End Role="tb_veiculo" Type="Self.tb_veiculo" Multiplicity="0..1" />
+    <End Role="tb_manutencao" Type="Self.tb_manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_veiculo">
+        <PropertyRef Name="cod_veiculo" />
+      </Principal>
+      <Dependent Role="tb_manutencao">
+        <PropertyRef Name="cod_veiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_viagem_tb_pessoa">
+    <End Role="tb_pessoa" Type="Self.tb_pessoa" Multiplicity="1" />
+    <End Role="tb_viagem" Type="Self.tb_viagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_pessoa">
+        <PropertyRef Name="ID_pessoa" />
+      </Principal>
+      <Dependent Role="tb_viagem">
+        <PropertyRef Name="cod_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_viagem_tb_pessoa_02">
+    <End Role="tb_pessoa" Type="Self.tb_pessoa" Multiplicity="1" />
+    <End Role="tb_viagem" Type="Self.tb_viagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_pessoa">
+        <PropertyRef Name="ID_pessoa" />
+      </Principal>
+      <Dependent Role="tb_viagem">
+        <PropertyRef Name="cod_motorista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_viagem_tb_veiculo">
+    <End Role="tb_veiculo" Type="Self.tb_veiculo" Multiplicity="1" />
+    <End Role="tb_viagem" Type="Self.tb_viagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_veiculo">
+        <PropertyRef Name="cod_veiculo" />
+      </Principal>
+      <Dependent Role="tb_viagem">
+        <PropertyRef Name="cod_veiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bd_gestmoveEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_abastecimento" EntityType="Self.tb_abastecimento" />
+    <EntitySet Name="tb_empresa" EntityType="Self.tb_empresa" />
+    <EntitySet Name="tb_locacao" EntityType="Self.tb_locacao" />
+    <EntitySet Name="tb_login" EntityType="Self.tb_login" />
+    <EntitySet Name="tb_manutencao" EntityType="Self.tb_manutencao" />
+    <EntitySet Name="tb_pessoa" EntityType="Self.tb_pessoa" />
+    <EntitySet Name="tb_posto" EntityType="Self.tb_posto" />
+    <EntitySet Name="tb_veiculo" EntityType="Self.tb_veiculo" />
+    <EntitySet Name="tb_viagem" EntityType="Self.tb_viagem" />
+    <AssociationSet Name="FK_tb_locacao_tb_pessoa" Association="Self.FK_tb_locacao_tb_pessoa">
+      <End Role="tb_pessoa" EntitySet="tb_pessoa" />
+      <End Role="tb_locacao" EntitySet="tb_locacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_locacao_tb_veiculo" Association="Self.FK_tb_locacao_tb_veiculo">
+      <End Role="tb_veiculo" EntitySet="tb_veiculo" />
+      <End Role="tb_locacao" EntitySet="tb_locacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_manutencao_tb_pessoa" Association="Self.FK_tb_manutencao_tb_pessoa">
+      <End Role="tb_pessoa" EntitySet="tb_pessoa" />
+      <End Role="tb_manutencao" EntitySet="tb_manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_manutencao_tb_veiculo" Association="Self.FK_tb_manutencao_tb_veiculo">
+      <End Role="tb_veiculo" EntitySet="tb_veiculo" />
+      <End Role="tb_manutencao" EntitySet="tb_manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_viagem_tb_pessoa" Association="Self.FK_tb_viagem_tb_pessoa">
+      <End Role="tb_pessoa" EntitySet="tb_pessoa" />
+      <End Role="tb_viagem" EntitySet="tb_viagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_viagem_tb_pessoa_02" Association="Self.FK_tb_viagem_tb_pessoa_02">
+      <End Role="tb_pessoa" EntitySet="tb_pessoa" />
+      <End Role="tb_viagem" EntitySet="tb_viagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_viagem_tb_veiculo" Association="Self.FK_tb_viagem_tb_veiculo">
+      <End Role="tb_veiculo" EntitySet="tb_veiculo" />
+      <End Role="tb_viagem" EntitySet="tb_viagem" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

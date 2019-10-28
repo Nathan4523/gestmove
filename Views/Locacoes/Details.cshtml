@@ -1,0 +1,90 @@
+﻿@model Gestmove.Models.tb_locacao
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tb_locacao</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.data_locacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data_locacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data_entrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data_entrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.qtd_dias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.qtd_dias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.km_original)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.km_original)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.km_nova)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.km_nova)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valor_locacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor_locacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_pessoa.nome_abreviado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_pessoa.nome_abreviado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_veiculo.proprio_alugado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_veiculo.proprio_alugado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.cod_locacao }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

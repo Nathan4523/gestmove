@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bd_gestmoveModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb_abastecimento">
+    <Key>
+      <PropertyRef Name="cod_abastecimento" />
+    </Key>
+    <Property Name="cod_abastecimento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cod_veiculo" Type="int" Nullable="false" />
+    <Property Name="cod_posto" Type="int" Nullable="false" />
+    <Property Name="data" Type="date" Nullable="false" />
+    <Property Name="litros" Type="int" Nullable="false" />
+    <Property Name="valor" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_empresa">
+    <Key>
+      <PropertyRef Name="ID_empresa" />
+    </Key>
+    <Property Name="ID_empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome_abreviado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="razao_social" Type="varchar" MaxLength="50" />
+    <Property Name="cnpj" Type="varchar" MaxLength="14" Nullable="false" />
+    <Property Name="ie" Type="varchar" MaxLength="11" />
+    <Property Name="logradouro" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="numero" Type="int" Nullable="false" />
+    <Property Name="compl" Type="varchar" MaxLength="30" />
+    <Property Name="cep" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="bairro" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="municipio" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="uf" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="regiao" Type="varchar" MaxLength="20" />
+    <Property Name="telefone" Type="char" MaxLength="8" />
+    <Property Name="celular" Type="char" MaxLength="9" />
+    <Property Name="contato" Type="varchar" MaxLength="20" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="observacao" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="tb_locacao">
+    <Key>
+      <PropertyRef Name="cod_locacao" />
+    </Key>
+    <Property Name="cod_locacao" Type="int" Nullable="false" />
+    <Property Name="cod_pessoa" Type="int" Nullable="false" />
+    <Property Name="cod_veiculo" Type="int" Nullable="false" />
+    <Property Name="data_locacao" Type="int" Nullable="false" />
+    <Property Name="data_entrega" Type="int" />
+    <Property Name="qtd_dias" Type="int" />
+    <Property Name="km_original" Type="int" />
+    <Property Name="km_nova" Type="int" />
+    <Property Name="valor_locacao" Type="int" Nullable="false" />
+    <Property Name="NF" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_login">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="senha" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="nv_user" Type="int" />
+  </EntityType>
+  <EntityType Name="tb_manutencao">
+    <Key>
+      <PropertyRef Name="cod_manutencao" />
+    </Key>
+    <Property Name="cod_manutencao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cod_veiculo" Type="int" />
+    <Property Name="cod_oficina" Type="int" />
+    <Property Name="tipo" Type="varchar" MaxLength="50" />
+    <Property Name="motivo" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="data" Type="date" />
+    <Property Name="valor" Type="float" />
+  </EntityType>
+  <EntityType Name="tb_pessoa">
+    <Key>
+      <PropertyRef Name="ID_pessoa" />
+    </Key>
+    <Property Name="ID_pessoa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo" Type="int" Nullable="false" />
+    <Property Name="nome_abreviado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="razao_social" Type="varchar" MaxLength="50" />
+    <Property Name="f_j" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="rg_cnpj" Type="varchar" MaxLength="14" Nullable="false" />
+    <Property Name="cpf_ie" Type="varchar" MaxLength="11" />
+    <Property Name="logradouro" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="numero" Type="int" Nullable="false" />
+    <Property Name="compl" Type="varchar" MaxLength="30" />
+    <Property Name="cep" Type="char" MaxLength="8" Nullable="false" />
+    <Property Name="bairro" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="municipio" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="uf" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="regiao" Type="varchar" MaxLength="20" />
+    <Property Name="telefone" Type="char" MaxLength="8" />
+    <Property Name="celular" Type="char" MaxLength="9" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="tipo_carteira" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="cnh" Type="char" MaxLength="11" Nullable="false" />
+    <Property Name="pontos_carteira" Type="int" />
+    <Property Name="data_contratacao" Type="date" Nullable="false" />
+    <Property Name="tipo_fornec_msa" Type="varchar" MaxLength="10" />
+    <Property Name="tipo_msa1" Type="varchar" MaxLength="50" />
+    <Property Name="tipo_msa2" Type="varchar" MaxLength="50" />
+    <Property Name="tipo_msa3" Type="varchar" MaxLength="50" />
+    <Property Name="observacao" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="tb_posto">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome_abreviado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="razao_social" Type="varchar" MaxLength="50" />
+    <Property Name="logradouro" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="numero" Type="int" Nullable="false" />
+    <Property Name="compl" Type="varchar" MaxLength="30" />
+    <Property Name="cep" Type="char" MaxLength="8" />
+    <Property Name="bairro" Type="varchar" MaxLength="20" />
+    <Property Name="municipio" Type="varchar" MaxLength="20" />
+    <Property Name="uf" Type="char" MaxLength="2" />
+    <Property Name="regiao" Type="varchar" MaxLength="20" />
+    <Property Name="observacao" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="tb_veiculo">
+    <Key>
+      <PropertyRef Name="cod_veiculo" />
+    </Key>
+    <Property Name="cod_veiculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="proprio_alugado" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="cod_fornecedor" Type="int" />
+    <Property Name="placa" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="uf" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="chassi" Type="char" MaxLength="17" Nullable="false" />
+    <Property Name="tipo_chassi" Type="int" Nullable="false" />
+    <Property Name="marca" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="cor" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="km" Type="int" />
+    <Property Name="combustivel" Type="varchar" MaxLength="10" />
+    <Property Name="observacao" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="tb_viagem">
+    <Key>
+      <PropertyRef Name="cod_viagem" />
+    </Key>
+    <Property Name="cod_viagem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cod_motorista" Type="int" Nullable="false" />
+    <Property Name="cod_cliente" Type="int" Nullable="false" />
+    <Property Name="cod_veiculo" Type="int" Nullable="false" />
+    <Property Name="data_saida" Type="date" Nullable="false" />
+    <Property Name="prev_chegada" Type="date" Nullable="false" />
+    <Property Name="data_chegada" Type="date" Nullable="false" />
+    <Property Name="valor" Type="float" Nullable="false" />
+    <Property Name="NF" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tb_locacao_tb_pessoa">
+    <End Role="tb_pessoa" Type="Self.tb_pessoa" Multiplicity="1" />
+    <End Role="tb_locacao" Type="Self.tb_locacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_pessoa">
+        <PropertyRef Name="ID_pessoa" />
+      </Principal>
+      <Dependent Role="tb_locacao">
+        <PropertyRef Name="cod_pessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_locacao_tb_veiculo">
+    <End Role="tb_veiculo" Type="Self.tb_veiculo" Multiplicity="1" />
+    <End Role="tb_locacao" Type="Self.tb_locacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_veiculo">
+        <PropertyRef Name="cod_veiculo" />
+      </Principal>
+      <Dependent Role="tb_locacao">
+        <PropertyRef Name="cod_veiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_manutencao_tb_pessoa">
+    <End Role="tb_pessoa" Type="Self.tb_pessoa" Multiplicity="0..1" />
+    <End Role="tb_manutencao" Type="Self.tb_manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_pessoa">
+        <PropertyRef Name="ID_pessoa" />
+      </Principal>
+      <Dependent Role="tb_manutencao">
+        <PropertyRef Name="cod_oficina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_manutencao_tb_veiculo">
+    <End Role="tb_veiculo" Type="Self.tb_veiculo" Multiplicity="0..1" />
+    <End Role="tb_manutencao" Type="Self.tb_manutencao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_veiculo">
+        <PropertyRef Name="cod_veiculo" />
+      </Principal>
+      <Dependent Role="tb_manutencao">
+        <PropertyRef Name="cod_veiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_viagem_tb_pessoa">
+    <End Role="tb_pessoa" Type="Self.tb_pessoa" Multiplicity="1" />
+    <End Role="tb_viagem" Type="Self.tb_viagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_pessoa">
+        <PropertyRef Name="ID_pessoa" />
+      </Principal>
+      <Dependent Role="tb_viagem">
+        <PropertyRef Name="cod_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_viagem_tb_pessoa_02">
+    <End Role="tb_pessoa" Type="Self.tb_pessoa" Multiplicity="1" />
+    <End Role="tb_viagem" Type="Self.tb_viagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_pessoa">
+        <PropertyRef Name="ID_pessoa" />
+      </Principal>
+      <Dependent Role="tb_viagem">
+        <PropertyRef Name="cod_motorista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_viagem_tb_veiculo">
+    <End Role="tb_veiculo" Type="Self.tb_veiculo" Multiplicity="1" />
+    <End Role="tb_viagem" Type="Self.tb_viagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_veiculo">
+        <PropertyRef Name="cod_veiculo" />
+      </Principal>
+      <Dependent Role="tb_viagem">
+        <PropertyRef Name="cod_veiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bd_gestmoveModelStoreContainer">
+    <EntitySet Name="tb_abastecimento" EntityType="Self.tb_abastecimento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_empresa" EntityType="Self.tb_empresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_locacao" EntityType="Self.tb_locacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_login" EntityType="Self.tb_login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_manutencao" EntityType="Self.tb_manutencao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_pessoa" EntityType="Self.tb_pessoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_posto" EntityType="Self.tb_posto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_veiculo" EntityType="Self.tb_veiculo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_viagem" EntityType="Self.tb_viagem" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tb_locacao_tb_pessoa" Association="Self.FK_tb_locacao_tb_pessoa">
+      <End Role="tb_pessoa" EntitySet="tb_pessoa" />
+      <End Role="tb_locacao" EntitySet="tb_locacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_locacao_tb_veiculo" Association="Self.FK_tb_locacao_tb_veiculo">
+      <End Role="tb_veiculo" EntitySet="tb_veiculo" />
+      <End Role="tb_locacao" EntitySet="tb_locacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_manutencao_tb_pessoa" Association="Self.FK_tb_manutencao_tb_pessoa">
+      <End Role="tb_pessoa" EntitySet="tb_pessoa" />
+      <End Role="tb_manutencao" EntitySet="tb_manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_manutencao_tb_veiculo" Association="Self.FK_tb_manutencao_tb_veiculo">
+      <End Role="tb_veiculo" EntitySet="tb_veiculo" />
+      <End Role="tb_manutencao" EntitySet="tb_manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_viagem_tb_pessoa" Association="Self.FK_tb_viagem_tb_pessoa">
+      <End Role="tb_pessoa" EntitySet="tb_pessoa" />
+      <End Role="tb_viagem" EntitySet="tb_viagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_viagem_tb_pessoa_02" Association="Self.FK_tb_viagem_tb_pessoa_02">
+      <End Role="tb_pessoa" EntitySet="tb_pessoa" />
+      <End Role="tb_viagem" EntitySet="tb_viagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_viagem_tb_veiculo" Association="Self.FK_tb_viagem_tb_veiculo">
+      <End Role="tb_veiculo" EntitySet="tb_veiculo" />
+      <End Role="tb_viagem" EntitySet="tb_viagem" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

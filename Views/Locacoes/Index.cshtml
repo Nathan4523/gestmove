@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Gestmove.Models.tb_locacao>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.data_locacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.data_entrega)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.qtd_dias)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.km_original)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.km_nova)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valor_locacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tb_pessoa.nome_abreviado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tb_veiculo.proprio_alugado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.data_locacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.data_entrega)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.qtd_dias)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.km_original)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.km_nova)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valor_locacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_pessoa.nome_abreviado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_veiculo.proprio_alugado)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.cod_locacao }) |
+            @Html.ActionLink("Details", "Details", new { id=item.cod_locacao }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.cod_locacao })
+        </td>
+    </tr>
+}
+
+</table>

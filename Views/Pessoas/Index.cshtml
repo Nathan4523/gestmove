@@ -1,0 +1,183 @@
+﻿@model IEnumerable<Gestmove.Models.tb_pessoa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nome_abreviado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.razao_social)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f_j)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rg_cnpj)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cpf_ie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.logradouro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.compl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bairro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.municipio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.regiao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.celular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_carteira)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cnh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pontos_carteira)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.data_contratacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_fornec_msa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_msa1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_msa2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_msa3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.observacao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nome_abreviado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.razao_social)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f_j)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rg_cnpj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cpf_ie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.logradouro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.compl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bairro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.municipio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.uf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.regiao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.celular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo_carteira)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cnh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pontos_carteira)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.data_contratacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo_fornec_msa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo_msa1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo_msa2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo_msa3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.observacao)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_pessoa }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_pessoa }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_pessoa })
+        </td>
+    </tr>
+}
+
+</table>

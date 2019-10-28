@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="26b25687678d44e7bdf447bdc27d426b" Name="Diagram1">
+        <EntityTypeShape EntityType="bd_gestmoveModel.tb_abastecimento" Width="1.5" PointX="8.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gestmoveModel.tb_empresa" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gestmoveModel.tb_locacao" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gestmoveModel.tb_login" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gestmoveModel.tb_manutencao" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gestmoveModel.tb_pessoa" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gestmoveModel.tb_posto" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gestmoveModel.tb_veiculo" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_gestmoveModel.tb_viagem" Width="1.5" PointX="6" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="bd_gestmoveModel.FK_tb_locacao_tb_pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gestmoveModel.FK_tb_locacao_tb_veiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gestmoveModel.FK_tb_manutencao_tb_pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gestmoveModel.FK_tb_manutencao_tb_veiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gestmoveModel.FK_tb_viagem_tb_pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gestmoveModel.FK_tb_viagem_tb_pessoa_02" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_gestmoveModel.FK_tb_viagem_tb_veiculo" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

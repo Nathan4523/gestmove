@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Gestmove.Models.tb_veiculo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.proprio_alugado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cod_fornecedor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.uf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.chassi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_chassi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.km)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.combustivel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.observacao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.proprio_alugado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cod_fornecedor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.placa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.uf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.chassi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo_chassi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.marca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.km)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.combustivel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.observacao)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.cod_veiculo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.cod_veiculo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.cod_veiculo })
+        </td>
+    </tr>
+}
+
+</table>
