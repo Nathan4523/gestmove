@@ -4,223 +4,545 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@*Breadcrumb*@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item">Detalhes</li>
+    <li class="breadcrumb-item active">@Html.DisplayFor(model => model.nome_abreviado)</li>
+</ol>
 
-<div>
-    <h4>tb_pessoa</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo)
-        </dt>
+<section class="container-pessoas">
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-body">
+                    @*<div class="row">
+                        <div class="col-12">
+                            <h2>Detalhes </h2>
+                        </div>
+                    </div>*@
+                    <div class="row mt-5">
+                        <div class="col-4">
+                            <div class="list-group" id="list-tab" role="tablist">
+                                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="tab" href="#list-pessoais" role="tab" aria-controls="list-home" aria-selected="true">Dados pessoais</a>
+                                <a class="list-group-item list-group-item-action" id="list-endereco-list" data-toggle="tab" href="#list-endereco" role="tab" aria-controls="list-profile" aria-selected="false">Endereço</a>
+                                @if (Model.tipo == 2)
+                                {
+                                    <a class="list-group-item list-group-item-action" id="list-empresariais-list" data-toggle="tab" href="#list-empresariais" role="tab" aria-controls="list-messages">Dados empresariais</a>
+                                }
 
-        <dd>
-            @Html.DisplayFor(model => model.tipo)
-        </dd>
+                                @if (Model.tipo == 3)
+                                {
+                                    <a class="list-group-item list-group-item-action" id="list-motorista-list" data-toggle="tab" href="#list-motorista" role="tab" aria-controls="list-messages">Dados de motoristas</a>
+                                }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nome_abreviado)
-        </dt>
+                                <a class="list-group-item list-group-item-action" id="list-observacoes-list" data-toggle="tab" href="#list-observacoes" role="tab" aria-controls="list-settings">Observações</a>
+                            </div>
+                        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.nome_abreviado)
-        </dd>
+                        <div class="col-md-8 col-12">
+                            <div class="card card-accent-success">
+                                <div class="card-header">
+                                    @if (Model.tipo == 2)
+                                    {
+                                        <i class="far fa-building mr-3"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="far fa-id-card mr-3"></i>
+                                    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.razao_social)
-        </dt>
+                                    @Html.DisplayFor(model => model.nome_abreviado)
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content border-0" id="nav-tabContent">
+                                        <div class="tab-pane fade active show" id="list-pessoais" role="tabpanel" aria-labelledby="list-home-list">
+                                            @if (Model.tipo == 1)
+                                            {
+                                                <div class="list-view">
+                                                    <h4>
+                                                        Rg
+                                                    </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.razao_social)
-        </dd>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.rg_cnpj)
+                                                    </p>
+                                                </div>
+                                                <hr>
+                                            }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.f_j)
-        </dt>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Cpf
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.f_j)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.cpf_ie)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.rg_cnpj)
-        </dt>
+                                            <div class="list-view">
+                                                <h4>
+                                                    E-mail
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.rg_cnpj)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.email)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cpf_ie)
-        </dt>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Telefone
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.cpf_ie)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.telefone)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.logradouro)
-        </dt>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Celular
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.logradouro)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.celular)
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="list-endereco" role="tabpanel" aria-labelledby="list-profile-list">
+                                            <div class="list-view">
+                                                <h4>
+                                                    Endereço
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.numero)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.logradouro), @Html.DisplayFor(model => model.numero) - @Html.DisplayFor(model => model.cep) - @Html.DisplayFor(model => model.uf)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.numero)
-        </dd>
+                                            @if (@Html.DisplayFor(model => model.compl) != null)
+                                            {
+                                                <div class="list-view">
+                                                    <h4>
+                                                        Complemento
+                                                    </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.compl)
-        </dt>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.compl)
+                                                    </p>
+                                                </div>
+                                                <hr>
+                                            }
 
-        <dd>
-            @Html.DisplayFor(model => model.compl)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Bairro
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cep)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.bairro)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.cep)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Municipio
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.bairro)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.municipio)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.bairro)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Região
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.municipio)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.regiao)
+                                                </p>
+                                            </div>
+                                        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.municipio)
-        </dd>
+                                        @if (Model.tipo == 2)
+                                        {
+                                            <div class="tab-pane fade" id="list-empresariais" role="tabpanel" aria-labelledby="list-messages-list">
+                                                <div class="list-view">
+                                                    <h4>
+                                                        Razão social
+                                                    </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.uf)
-        </dt>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.razao_social)
+                                                    </p>
+                                                </div>
+                                                <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.uf)
-        </dd>
+                                                <div class="list-view">
+                                                    <h4>
+                                                        Cnpj
+                                                    </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.regiao)
-        </dt>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.rg_cnpj)
+                                                    </p>
+                                                </div>
+                                                <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.regiao)
-        </dd>
+                                                <div class="list-view">
+                                                    <h4>
+                                                        Ie
+                                                    </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.telefone)
-        </dt>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.cpf_ie)
+                                                    </p>
+                                                </div>
+                                                <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.telefone)
-        </dd>
+                                                <div class="list-view">
+                                                    <h4>
+                                                        Data da contratação
+                                                    </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.celular)
-        </dt>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.data_contratacao)
+                                                    </p>
+                                                </div>
+                                                <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.celular)
-        </dd>
+                                                <div class="list-view">
+                                                    <h4>
+                                                        @Html.DisplayNameFor(model => model.tipo_fornec_msa)
+                                                    </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.tipo_fornec_msa)
+                                                    </p>
+                                                </div>
+                                                <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.email)
-        </dd>
+                                                <div class="list-view">
+                                                    <h4>
+                                                        @Html.DisplayNameFor(model => model.tipo_msa1)
+                                                    </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo_carteira)
-        </dt>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.tipo_msa1)
+                                                    </p>
+                                                </div>
+                                                <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.tipo_carteira)
-        </dd>
+                                                <div class="list-view">
+                                                    <h4>
+                                                        @Html.DisplayNameFor(model => model.tipo_msa2)
+                                                    </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cnh)
-        </dt>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.tipo_msa2)
+                                                    </p>
+                                                </div>
+                                                <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.cnh)
-        </dd>
+                                                <div class="list-view">
+                                                    <h4>
+                                                        @Html.DisplayNameFor(model => model.tipo_msa3)
+                                                    </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.pontos_carteira)
-        </dt>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.tipo_msa3)
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        }
 
-        <dd>
-            @Html.DisplayFor(model => model.pontos_carteira)
-        </dd>
+                                        <div class="tab-pane fade" id="list-motorista" role="tabpanel" aria-labelledby="list-settings-list">
+                                            <div class="list-view">
+                                                <h4>
+                                                    Tipo da carteira
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.data_contratacao)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.tipo_carteira)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.data_contratacao)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Cnh
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo_fornec_msa)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.cnh)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.tipo_fornec_msa)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Pontos na carteira
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo_msa1)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.pontos_carteira)
+                                                </p>
+                                            </div>
+                                        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.tipo_msa1)
-        </dd>
+                                        <div class="tab-pane fade" id="list-observacoes" role="tabpanel" aria-labelledby="list-settings-list">
+                                            <div class="list-view">
+                                                <h4>
+                                                    Observações
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo_msa2)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.observacao)
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.tipo_msa2)
-        </dd>
+                            <a href="/Pessoas" class="btn btn-default text-center">
+                                <i class="fas fa-arrow-left mr-3"></i> Voltar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo_msa3)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.tipo_msa3)
-        </dd>
+@*<h2>Details</h2>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.observacao)
-        </dt>
+    <div>
+        <h4>tb_pessoa</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.tipo)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.observacao)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.tipo)
+            </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_pessoa }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            <dt>
+                @Html.DisplayNameFor(model => model.nome_abreviado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nome_abreviado)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.razao_social)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.razao_social)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.f_j)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.f_j)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.rg_cnpj)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.rg_cnpj)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.cpf_ie)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cpf_ie)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.logradouro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.logradouro)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.numero)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.numero)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.compl)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.compl)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.cep)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cep)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.bairro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.bairro)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.municipio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.municipio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.uf)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.uf)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.regiao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.regiao)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.telefone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.telefone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.celular)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.celular)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.tipo_carteira)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tipo_carteira)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.cnh)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cnh)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.pontos_carteira)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pontos_carteira)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.data_contratacao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.data_contratacao)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.tipo_fornec_msa)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tipo_fornec_msa)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.tipo_msa1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tipo_msa1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.tipo_msa2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tipo_msa2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.tipo_msa3)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tipo_msa3)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.observacao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.observacao)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID_pessoa }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

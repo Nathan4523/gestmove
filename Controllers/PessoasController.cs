@@ -15,12 +15,14 @@ namespace Gestmove.Controllers
         private bd_gestmoveEntities db = new bd_gestmoveEntities();
 
         // GET: Pessoas
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.tb_pessoa.ToList());
         }
 
         // GET: Pessoas/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -59,6 +61,7 @@ namespace Gestmove.Controllers
         }
 
         // GET: Pessoas/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +93,7 @@ namespace Gestmove.Controllers
         }
 
         // GET: Pessoas/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)

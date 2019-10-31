@@ -7,6 +7,42 @@
 */
 
 
+/**
+    * Global
+*/
+
+.btn-default {
+    background-color: #001f3e;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 15px;
+    display: table;
+    margin: 20px auto 0;
+    opacity: 0.8;
+}
+
+    .btn-default:hover {
+        background-color: #000a15;
+        color: #fff;
+        opacity: 1;
+        transition: 0.3s;
+    }
+
+.btn-add {
+    background-color: #001f3e;
+    color: #fff;
+    font-size: 14px;
+    height: 35px;
+    margin-top: auto;
+    opacity: 0.8;
+}
+
+    .btn-add:hover {
+        background-color: #000a15;
+        color: #fff;
+        opacity: 1;
+        transition: 0.3s;
+    }
 /*
     *Menu top
 */
@@ -19,11 +55,23 @@
     background-color: #001f3e !important;
 }
 
-.app-body .sidebar .sidebar-nav .divider {
-    height: 10px;
-    border-bottom: 1px solid #7d7d7d87;
+    .app-body .sidebar .sidebar-nav .divider {
+        height: 10px;
+        border-bottom: 1px solid #7d7d7d87;
+    }
+
+/*
+    *Menu lateral
+*/
+.sidebar .nav-link.active {
+    color: #000;
+    background: #ffffff;
 }
 
+.sidebar .nav-link:hover {
+    color: #fff;
+    background: #000000c9;
+}
 /**
    * Tela de Login
 */
@@ -44,3 +92,31 @@
         color: #fff;
         height: 45px;
     }
+
+
+/**
+   * Módulo pessoas
+*/
+
+.container-pessoas table .links-acoes > .btn-funcoes > svg {
+    color: #000;
+}
+
+.container-pessoas table .links-acoes .btn-edit:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-pessoas table .links-acoes .btn-show:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-pessoas table .links-acoes .btn-delete:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-pessoas .card .card-body .list-group .active {
+    background-color: #001f3e;
+}
