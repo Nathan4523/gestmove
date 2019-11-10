@@ -17,8 +17,8 @@ namespace Gestmove.Models
         public int cod_locacao { get; set; }
         public int cod_pessoa { get; set; }
         public int cod_veiculo { get; set; }
-        public int data_locacao { get; set; }
-        public Nullable<int> data_entrega { get; set; }
+        public System.DateTime data_locacao { get; set; }
+        public Nullable<System.DateTime> data_entrega { get; set; }
         public Nullable<int> qtd_dias { get; set; }
         public Nullable<int> km_original { get; set; }
         public Nullable<int> km_nova { get; set; }

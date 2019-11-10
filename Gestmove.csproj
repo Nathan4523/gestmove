@@ -137,6 +137,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocacoesController.cs" />
     <Compile Include="Controllers\ManutencoesController.cs" />
+    <Compile Include="Controllers\OcorrenciasController.cs" />
     <Compile Include="Controllers\PessoasController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\VeiculosController.cs" />
@@ -282,6 +283,11 @@
     <Content Include="Views\Manutencoes\Details.cshtml" />
     <Content Include="Views\Manutencoes\Edit.cshtml" />
     <Content Include="Views\Manutencoes\Index.cshtml" />
+    <Content Include="Views\Ocorrencias\Create.cshtml" />
+    <Content Include="Views\Ocorrencias\Delete.cshtml" />
+    <Content Include="Views\Ocorrencias\Details.cshtml" />
+    <Content Include="Views\Ocorrencias\Edit.cshtml" />
+    <Content Include="Views\Ocorrencias\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

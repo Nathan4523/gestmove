@@ -41,8 +41,8 @@
     <Property Name="cod_locacao" Type="Int32" Nullable="false" />
     <Property Name="cod_pessoa" Type="Int32" Nullable="false" />
     <Property Name="cod_veiculo" Type="Int32" Nullable="false" />
-    <Property Name="data_locacao" Type="Int32" Nullable="false" />
-    <Property Name="data_entrega" Type="Int32" />
+    <Property Name="data_locacao" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="data_entrega" Type="DateTime" Precision="0" />
     <Property Name="qtd_dias" Type="Int32" />
     <Property Name="km_original" Type="Int32" />
     <Property Name="km_nova" Type="Int32" />

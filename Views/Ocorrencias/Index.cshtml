@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Gestmove.Models.tb_ocorrencia>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.motivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pontos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.obs_motorista)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tb_pessoa.nome_abreviado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tb_veiculo.proprio_alugado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tb_viagem.cod_viagem)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.motivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pontos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.obs_motorista)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_pessoa.nome_abreviado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_veiculo.proprio_alugado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_viagem.cod_viagem)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.cod_ocorrencia }) |
+            @Html.ActionLink("Details", "Details", new { id=item.cod_ocorrencia }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.cod_ocorrencia })
+        </td>
+    </tr>
+}
+
+</table>

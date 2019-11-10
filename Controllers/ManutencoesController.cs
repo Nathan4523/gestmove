@@ -15,6 +15,7 @@ namespace Gestmove.Controllers
         private bd_gestmoveEntities db = new bd_gestmoveEntities();
 
         // GET: Manutencoes
+        [Authorize]
         public ActionResult Index()
         {
             var tb_manutencao = db.tb_manutencao.Include(t => t.tb_pessoa).Include(t => t.tb_veiculo);
@@ -22,6 +23,7 @@ namespace Gestmove.Controllers
         }
 
         // GET: Manutencoes/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,10 +39,11 @@ namespace Gestmove.Controllers
         }
 
         // GET: Manutencoes/Create
+        [Authorize]
         public ActionResult Create()
         {
-            ViewBag.cod_oficina = new SelectList(db.tb_pessoa, "ID_pessoa", "nome_abreviado");
-            ViewBag.cod_veiculo = new SelectList(db.tb_veiculo, "cod_veiculo", "proprio_alugado");
+            //ViewBag.cod_oficina = new SelectList(db.tb_pessoa, "ID_pessoa", "nome_abreviado");
+            ViewBag.cod_veiculo = new SelectList(db.tb_veiculo, "cod_veiculo", "cod_veiculo");
             return View();
         }
 
@@ -64,6 +67,7 @@ namespace Gestmove.Controllers
         }
 
         // GET: Manutencoes/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -75,8 +79,9 @@ namespace Gestmove.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.cod_oficina = new SelectList(db.tb_pessoa, "ID_pessoa", "nome_abreviado", tb_manutencao.cod_oficina);
-            ViewBag.cod_veiculo = new SelectList(db.tb_veiculo, "cod_veiculo", "proprio_alugado", tb_manutencao.cod_veiculo);
+            //ViewBag.cod_oficina = new SelectList(db.tb_pessoa, "ID_pessoa", "nome_abreviado", tb_manutencao.cod_oficina);
+            //ViewBag.cod_veiculo = new SelectList(db.tb_veiculo, "cod_veiculo", "proprio_alugado", tb_manutencao.cod_veiculo);
+            ViewBag.cod_veiculo = new SelectList(db.tb_veiculo, "cod_veiculo", "cod_veiculo");
             return View(tb_manutencao);
         }
 
