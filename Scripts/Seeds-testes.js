@@ -45,7 +45,6 @@ $(function () {
     }
 
     $("#proprio_alugado").val(proprio_alugado);
-    $("#cod_fornecedor").val(2);
     $("#placa").val("PSP5140");
     $("#uf").val("AM");
     $("#chassi").val("9bg116bw04c400001");

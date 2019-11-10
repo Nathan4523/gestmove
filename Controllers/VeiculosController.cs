@@ -42,7 +42,9 @@ namespace Gestmove.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.cod_fornecedor = new SelectList(db.tb_pessoa, "ID_pessoa", "nome_abreviado");
+            var clientes = db.tb_pessoa.Select(x => new { x.ID_pessoa, x.tipo, x.nome_abreviado }).Where(s => s.tipo == 2);
+            ViewBag.cod_fornecedor = new SelectList(clientes, "ID_pessoa", "nome_abreviado");
+            
             return View();
         }
 
@@ -59,6 +61,9 @@ namespace Gestmove.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            var clientes = db.tb_pessoa.Select(x => new { x.ID_pessoa, x.tipo, x.nome_abreviado }).Where(s => s.tipo == 2);
+            ViewBag.cod_fornecedor = new SelectList(clientes, "ID_pessoa", "nome_abreviado");
 
             return View(tb_veiculo);
         }

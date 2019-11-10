@@ -40,10 +40,15 @@ namespace Gestmove.Controllers
         // GET: Viagens/Create
         [Authorize]
         public ActionResult Create()
-        {
-            ViewBag.cod_cliente = new SelectList(db.tb_pessoa, "ID_pessoa", "nome_abreviado");
-            ViewBag.cod_motorista = new SelectList(db.tb_pessoa, "ID_pessoa", "nome_abreviado");
-            ViewBag.cod_veiculo = new SelectList(db.tb_veiculo, "cod_veiculo", "proprio_alugado");
+        {    
+            var clientes = db.tb_pessoa.Select(x => new { x.ID_pessoa, x.tipo, x.nome_abreviado }).Where(s => s.tipo == 2);
+            var motoristas = db.tb_pessoa.Select(x => new { x.ID_pessoa, x.tipo, x.nome_abreviado }).Where(s => s.tipo == 3);
+            var veiculos = db.tb_veiculo.Select(x => new { x.cod_veiculo, x.modelo, x.proprio_alugado });
+
+            ViewBag.cod_cliente = new SelectList(clientes, "ID_pessoa", "nome_abreviado");
+            ViewBag.cod_motorista = new SelectList(motoristas, "ID_pessoa", "nome_abreviado");
+            ViewBag.cod_veiculo = new SelectList(veiculos, "cod_veiculo", "modelo");
+
             return View();
         }
 
@@ -61,9 +66,13 @@ namespace Gestmove.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.cod_cliente = new SelectList(db.tb_pessoa, "ID_pessoa", "nome_abreviado", tb_viagem.cod_cliente);
-            ViewBag.cod_motorista = new SelectList(db.tb_pessoa, "ID_pessoa", "nome_abreviado", tb_viagem.cod_motorista);
-            ViewBag.cod_veiculo = new SelectList(db.tb_veiculo, "cod_veiculo", "proprio_alugado", tb_viagem.cod_veiculo);
+            var clientes = db.tb_pessoa.Select(x => new { x.ID_pessoa, x.tipo, x.nome_abreviado }).Where(s => s.tipo == 2);
+            var motoristas = db.tb_pessoa.Select(x => new { x.ID_pessoa, x.tipo, x.nome_abreviado }).Where(s => s.tipo == 3);
+            var veiculos = db.tb_veiculo.Select(x => new { x.cod_veiculo, x.modelo, x.proprio_alugado });
+
+            ViewBag.cod_cliente = new SelectList(clientes, "ID_pessoa", "nome_abreviado");
+            ViewBag.cod_motorista = new SelectList(motoristas, "ID_pessoa", "nome_abreviado");
+            ViewBag.cod_veiculo = new SelectList(veiculos, "cod_veiculo", "modelo");
             return View(tb_viagem);
         }
 
