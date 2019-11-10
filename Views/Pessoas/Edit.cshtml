@@ -39,8 +39,13 @@
                             <div class="d-flex flex-column flex-md-row justify-content-center">
                                 <div class="item-bloco col-5">
                                     <label>Tipo de pefil <sup class="text-danger">*</sup></label>
-                                    @Html.EditorFor(model => model.tipo, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.tipo, "", new { @class = "text-danger" })
+                                    <select name="tipo" class="form-control custom-select" id="tipo">
+                                        <option>Escolher</option>
+                                        <option value="1">Cliente</option>
+                                        <option value="2">Fornecedor</option>
+                                        <option value="3">Motorista</option>
+                                    </select>
                                 </div>
 
                                 <div class="item-bloco col">
@@ -71,8 +76,12 @@
 
                                 <div class="item-bloco col">
                                     <label>Fisico ou Júridico <sup class="text-danger">*</sup></label>
-                                    @Html.EditorFor(model => model.f_j, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.f_j, "", new { @class = "text-danger" })
+                                    <select name="f_j" class="form-control custom-select" id="f_j">
+                                        <option>Escolher</option>
+                                        <option value="f">Fisico</option>
+                                        <option value="j">Júridico</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

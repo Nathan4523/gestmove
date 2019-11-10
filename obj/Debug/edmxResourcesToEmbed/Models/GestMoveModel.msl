@@ -76,6 +76,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tb_ocorrencia">
+      <EntityTypeMapping TypeName="bd_gestmoveModel.tb_ocorrencia">
+        <MappingFragment StoreEntitySet="tb_ocorrencia">
+          <ScalarProperty Name="cod_ocorrencia" ColumnName="cod_ocorrencia" />
+          <ScalarProperty Name="cod_viagem" ColumnName="cod_viagem" />
+          <ScalarProperty Name="cod_motorista" ColumnName="cod_motorista" />
+          <ScalarProperty Name="cod_veiculo" ColumnName="cod_veiculo" />
+          <ScalarProperty Name="motivo" ColumnName="motivo" />
+          <ScalarProperty Name="pontos" ColumnName="pontos" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="obs_motorista" ColumnName="obs_motorista" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="tb_pessoa">
       <EntityTypeMapping TypeName="bd_gestmoveModel.tb_pessoa">
         <MappingFragment StoreEntitySet="tb_pessoa">

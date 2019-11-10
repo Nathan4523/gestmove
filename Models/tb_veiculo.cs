@@ -19,6 +19,7 @@ namespace Gestmove.Models
         {
             this.tb_locacao = new HashSet<tb_locacao>();
             this.tb_manutencao = new HashSet<tb_manutencao>();
+            this.tb_ocorrencia = new HashSet<tb_ocorrencia>();
             this.tb_viagem = new HashSet<tb_viagem>();
         }
     
@@ -40,6 +41,8 @@ namespace Gestmove.Models
         public virtual ICollection<tb_locacao> tb_locacao { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_manutencao> tb_manutencao { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_ocorrencia> tb_ocorrencia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_viagem> tb_viagem { get; set; }
     }

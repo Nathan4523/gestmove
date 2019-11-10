@@ -20,7 +20,7 @@ namespace Gestmove.Models
         public string tipo { get; set; }
         public string motivo { get; set; }
         public Nullable<System.DateTime> data { get; set; }
-        public Nullable<double> valor { get; set; }
+        public decimal valor { get; set; }
     
         public virtual tb_pessoa tb_pessoa { get; set; }
         public virtual tb_veiculo tb_veiculo { get; set; }

@@ -38,19 +38,25 @@
                                 <div class="d-flex flex-column flex-md-row justify-content-center">
                                     <div class="item-bloco col-5">
                                         <label>Tipo de pefil <sup class="text-danger">*</sup></label>
-                                        @Html.EditorFor(model => model.tipo, new { htmlAttributes = new { @class = "form-control" } })
+                                        @*@Html.EditorFor(model => model.tipo, new { htmlAttributes = new { @class = "form-control", id="tipo" } })*@
+                                        <select name="tipo" class="form-control custom-select" id="tipo">
+                                            <option>Escolher</option>
+                                            <option value="1">Cliente</option>
+                                            <option value="2">Fornecedor</option>
+                                            <option value="3">Motorista</option>
+                                        </select>
                                         @Html.ValidationMessageFor(model => model.tipo, "", new { @class = "text-danger" })
                                     </div>
 
                                     <div class="item-bloco col">
                                         <label>Nome <sup class="text-danger">*</sup></label>
-                                        @Html.EditorFor(model => model.nome_abreviado, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.nome_abreviado, new { htmlAttributes = new { @class = "form-control", id="nome" } })
                                         @Html.ValidationMessageFor(model => model.nome_abreviado, "", new { @class = "text-danger" })
                                     </div>
 
                                     <div class="item-bloco col">
                                         <label>E-mail <sup class="text-danger">*</sup></label>
-                                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", id="email" } })
                                         @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -70,8 +76,13 @@
 
                                     <div class="item-bloco col">
                                         <label>Fisico ou Júridico <sup class="text-danger">*</sup></label>
-                                        @Html.EditorFor(model => model.f_j, new { htmlAttributes = new { @class = "form-control" } })
+                                        @*@Html.EditorFor(model => model.f_j, new { htmlAttributes = new { @class = "form-control", id = "f_j" } })*@
                                         @Html.ValidationMessageFor(model => model.f_j, "", new { @class = "text-danger" })
+                                        <select name="f_j" class="form-control custom-select" id="f_j">
+                                            <option>Escolher</option>
+                                            <option value="f">Fisico</option>
+                                            <option value="j">Júridico</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -80,13 +91,13 @@
                                 <div class="d-flex flex-column flex-md-row justify-content-center">
                                     <div class="item-bloco col">
                                         <label>Rg ou Cnpj</label>
-                                        @Html.EditorFor(model => model.rg_cnpj, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.rg_cnpj, new { htmlAttributes = new { @class = "form-control", id="rg_cnpj" } })
                                         @Html.ValidationMessageFor(model => model.rg_cnpj, "", new { @class = "text-danger" })
                                     </div>
 
                                     <div class="item-bloco col">
                                         <label>Cpf ou Ie <sup class="text-danger">*</sup></label>
-                                        @Html.EditorFor(model => model.cpf_ie, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.cpf_ie, new { htmlAttributes = new { @class = "form-control", id="cpf" } })
                                         @Html.ValidationMessageFor(model => model.cpf_ie, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -100,19 +111,19 @@
                                 <div class="d-flex flex-column flex-md-row justify-content-center">
                                     <div class="item-bloco col">
                                         <label>Logradouro</label>
-                                        @Html.EditorFor(model => model.logradouro, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.logradouro, new { htmlAttributes = new { @class = "form-control", id="logradouro" } })
                                         @Html.ValidationMessageFor(model => model.logradouro, "", new { @class = "text-danger" })
                                     </div>
 
                                     <div class="item-bloco col">
                                         <label>Número <sup class="text-danger">*</sup></label>
-                                        @Html.EditorFor(model => model.numero, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.numero, new { htmlAttributes = new { @class = "form-control", id="numero" } })
                                         @Html.ValidationMessageFor(model => model.numero, "", new { @class = "text-danger" })
                                     </div>
 
                                     <div class="item-bloco col">
                                         <label>Complemento</label>
-                                        @Html.EditorFor(model => model.compl, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.compl, new { htmlAttributes = new { @class = "form-control", id="complemento" } })
                                         @Html.ValidationMessageFor(model => model.compl, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -122,19 +133,19 @@
                                 <div class="d-flex flex-column flex-md-row justify-content-center">
                                     <div class="item-bloco col">
                                         <label>Cep <sup>*</sup></label>
-                                        @Html.EditorFor(model => model.cep, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.cep, new { htmlAttributes = new { @class = "form-control", id="cep"} })
                                         @Html.ValidationMessageFor(model => model.cep, "", new { @class = "text-danger" })
                                     </div>
 
                                     <div class="item-bloco col">
                                         <label>Bairro <sup class="text-danger">*</sup></label>
-                                        @Html.EditorFor(model => model.bairro, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.bairro, new { htmlAttributes = new { @class = "form-control", id="bairro" } })
                                         @Html.ValidationMessageFor(model => model.bairro, "", new { @class = "text-danger" })
                                     </div>
 
                                     <div class="item-bloco col">
                                         <label>Municipío <sup>*</sup></label>
-                                        @Html.EditorFor(model => model.municipio, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.municipio, new { htmlAttributes = new { @class = "form-control", id="municipio" } })
                                         @Html.ValidationMessageFor(model => model.municipio, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -144,13 +155,13 @@
                                 <div class="d-flex flex-column flex-md-row justify-content-center">
                                     <div class="item-bloco col">
                                         <label>UF</label>
-                                        @Html.EditorFor(model => model.uf, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.uf, new { htmlAttributes = new { @class = "form-control", id="uf" } })
                                         @Html.ValidationMessageFor(model => model.uf, "", new { @class = "text-danger" })
                                     </div>
 
                                     <div class="item-bloco col">
                                         <label>Região <sup class="text-danger">*</sup></label>
-                                        @Html.EditorFor(model => model.regiao, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.regiao, new { htmlAttributes = new { @class = "form-control", id="regiao" } })
                                         @Html.ValidationMessageFor(model => model.regiao, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -160,13 +171,13 @@
                                 <div class="d-flex flex-column flex-md-row justify-content-center">
                                     <div class="item-bloco col">
                                         <label>Telefone <span class="text-danger">(Sem prefixo)</span></label>
-                                        @Html.EditorFor(model => model.telefone, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.telefone, new { htmlAttributes = new { @class = "form-control", id="telefone" } })
                                         @Html.ValidationMessageFor(model => model.telefone, "", new { @class = "text-danger" })
                                     </div>
 
                                     <div class="item-bloco col">
                                         <label>Celular <span class="text-danger">(Sem prefixo)</span></label>
-                                        @Html.EditorFor(model => model.celular, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.celular, new { htmlAttributes = new { @class = "form-control", id="celular" } })
                                         @Html.ValidationMessageFor(model => model.celular, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -183,24 +194,24 @@
                                 <div class="d-flex flex-column flex-md-row justify-content-center">
                                     <div class="item-bloco col">
                                         <label>Tipo da carteira <sup>*</sup></label>
-                                        @Html.EditorFor(model => model.tipo_carteira, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.tipo_carteira, new { htmlAttributes = new { @class = "form-control", id="tipo_carteira" } })
                                         @Html.ValidationMessageFor(model => model.tipo_carteira, "", new { @class = "text-danger" })
                                     </div>
 
                                     <div class="item-bloco col">
                                         <label>Cnh <sup class="text-danger">*</sup></label>
-                                        @Html.EditorFor(model => model.cnh, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.cnh, new { htmlAttributes = new { @class = "form-control", id="cnh" } })
                                         @Html.ValidationMessageFor(model => model.cnh, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="item-bloco col">
                                         <label>Pontos na carteira <sup>*</sup></label>
-                                        @Html.EditorFor(model => model.pontos_carteira, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.pontos_carteira, new { htmlAttributes = new { @class = "form-control", id="pontos" } })
                                         @Html.ValidationMessageFor(model => model.pontos_carteira, "", new { @class = "text-danger" })
                                     </div>
 
                                     <div class="item-bloco col">
                                         <label>Data da contratação <sup class="text-danger">*</sup></label>
-                                        @Html.EditorFor(model => model.data_contratacao, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.data_contratacao, new { htmlAttributes = new { @class = "form-control", id="data-contratacao" } })
                                         @Html.ValidationMessageFor(model => model.data_contratacao, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -210,25 +221,25 @@
                                 <div class="d-flex flex-column flex-md-row justify-content-center">
                                     <div class="item-bloco col">
                                         <label>Tipo_fornec_msa <sup>*</sup></label>
-                                        @Html.EditorFor(model => model.tipo_fornec_msa, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.tipo_fornec_msa, new { htmlAttributes = new { @class = "form-control", id="tipo_fornec" } })
                                         @Html.ValidationMessageFor(model => model.tipo_fornec_msa, "", new { @class = "text-danger" })
                                     </div>
 
                                     <div class="item-bloco col">
                                         <label>tipo_msa1</label>
-                                        @Html.EditorFor(model => model.tipo_msa1, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.tipo_msa1, new { htmlAttributes = new { @class = "form-control", id="tipo_msa1" } })
                                         @Html.ValidationMessageFor(model => model.tipo_msa1, "", new { @class = "text-danger" })
                                     </div>
 
                                     <div class="item-bloco col">
                                         <label>tipo_msa2</label>
-                                        @Html.EditorFor(model => model.tipo_msa2, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.tipo_msa2, new { htmlAttributes = new { @class = "form-control", id="tipo_msa2" } })
                                         @Html.ValidationMessageFor(model => model.tipo_msa2, "", new { @class = "text-danger" })
                                     </div>
 
                                     <div class="item-bloco col">
                                         <label>tipo_msa3</label>
-                                        @Html.EditorFor(model => model.tipo_msa3, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.tipo_msa3, new { htmlAttributes = new { @class = "form-control", id="tipo_msa3" } })
                                         @Html.ValidationMessageFor(model => model.tipo_msa3, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
@@ -243,7 +254,7 @@
                                 <div class="d-flex flex-column flex-md-row justify-content-center">
                                     <div class="item-bloco col">
                                         <label>Observações </label>
-                                        @Html.EditorFor(model => model.observacao, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.EditorFor(model => model.observacao, new { htmlAttributes = new { @class = "form-control", id="obs" } })
                                         @Html.ValidationMessageFor(model => model.observacao, "", new { @class = "text-danger" })
                                     </div>
                                 </div>

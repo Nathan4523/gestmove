@@ -76,7 +76,6 @@ C:\Users\cuddy\Desktop\gestmove\bin\pt-br\System.Web.Razor.resources.dll
 C:\Users\cuddy\Desktop\gestmove\bin\pt-br\System.Web.WebPages.resources.dll
 C:\Users\cuddy\Desktop\gestmove\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
 C:\Users\cuddy\Desktop\gestmove\bin\pt-br\System.Web.WebPages.Razor.resources.dll
-C:\Users\cuddy\Desktop\gestmove\obj\Debug\Gestmove.csprojAssemblyReference.cache
 C:\Users\cuddy\Desktop\gestmove\obj\Debug\Gestmove.csproj.CopyComplete
 C:\Users\cuddy\Desktop\gestmove\obj\Debug\Gestmove.dll
 C:\Users\cuddy\Desktop\gestmove\obj\Debug\Gestmove.pdb
@@ -84,3 +83,4 @@ C:\Users\cuddy\Desktop\gestmove\bin\EntityFramework.dll
 C:\Users\cuddy\Desktop\gestmove\bin\EntityFramework.SqlServer.dll
 C:\Users\cuddy\Desktop\gestmove\bin\EntityFramework.xml
 C:\Users\cuddy\Desktop\gestmove\bin\EntityFramework.SqlServer.xml
+C:\Users\cuddy\Desktop\Gestmove\obj\Debug\Gestmove.csprojAssemblyReference.cache

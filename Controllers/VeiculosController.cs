@@ -15,12 +15,15 @@ namespace Gestmove.Controllers
         private bd_gestmoveEntities db = new bd_gestmoveEntities();
 
         // GET: Veiculos
+        [Authorize]
         public ActionResult Index()
         {
+            //var motoristas = db.tb_pessoa.Select(x => new { x.ID_pessoa, x.nome_abreviado });
             return View(db.tb_veiculo.ToList());
         }
 
         // GET: Veiculos/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,8 +39,10 @@ namespace Gestmove.Controllers
         }
 
         // GET: Veiculos/Create
+        [Authorize]
         public ActionResult Create()
         {
+            ViewBag.cod_fornecedor = new SelectList(db.tb_pessoa, "ID_pessoa", "nome_abreviado");
             return View();
         }
 
@@ -59,6 +64,7 @@ namespace Gestmove.Controllers
         }
 
         // GET: Veiculos/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +96,7 @@ namespace Gestmove.Controllers
         }
 
         // GET: Veiculos/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)

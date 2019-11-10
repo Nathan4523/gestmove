@@ -22,7 +22,7 @@ namespace Gestmove.Models
         public Nullable<int> qtd_dias { get; set; }
         public Nullable<int> km_original { get; set; }
         public Nullable<int> km_nova { get; set; }
-        public int valor_locacao { get; set; }
+        public decimal valor_locacao { get; set; }
         public int NF { get; set; }
     
         public virtual tb_pessoa tb_pessoa { get; set; }

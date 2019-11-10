@@ -9,7 +9,7 @@
     <Property Name="cod_posto" Type="int" Nullable="false" />
     <Property Name="data" Type="date" Nullable="false" />
     <Property Name="litros" Type="int" Nullable="false" />
-    <Property Name="valor" Type="float" Nullable="false" />
+    <Property Name="valor" Type="decimal" Precision="10" Scale="2" Nullable="false" />
   </EntityType>
   <EntityType Name="tb_empresa">
     <Key>
@@ -46,7 +46,7 @@
     <Property Name="qtd_dias" Type="int" />
     <Property Name="km_original" Type="int" />
     <Property Name="km_nova" Type="int" />
-    <Property Name="valor_locacao" Type="int" Nullable="false" />
+    <Property Name="valor_locacao" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="NF" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="tb_login">
@@ -55,7 +55,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="usuario" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="senha" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="senha" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="nv_user" Type="int" />
   </EntityType>
   <EntityType Name="tb_manutencao">
@@ -68,7 +68,20 @@
     <Property Name="tipo" Type="varchar" MaxLength="50" />
     <Property Name="motivo" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="data" Type="date" />
-    <Property Name="valor" Type="float" />
+    <Property Name="valor" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_ocorrencia">
+    <Key>
+      <PropertyRef Name="cod_ocorrencia" />
+    </Key>
+    <Property Name="cod_ocorrencia" Type="int" Nullable="false" />
+    <Property Name="cod_viagem" Type="int" Nullable="false" />
+    <Property Name="cod_motorista" Type="int" Nullable="false" />
+    <Property Name="cod_veiculo" Type="int" Nullable="false" />
+    <Property Name="motivo" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="pontos" Type="int" />
+    <Property Name="valor" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="obs_motorista" Type="varchar" MaxLength="300" />
   </EntityType>
   <EntityType Name="tb_pessoa">
     <Key>
@@ -89,8 +102,8 @@
     <Property Name="municipio" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="uf" Type="char" MaxLength="2" Nullable="false" />
     <Property Name="regiao" Type="varchar" MaxLength="20" />
-    <Property Name="telefone" Type="char" MaxLength="8" />
-    <Property Name="celular" Type="char" MaxLength="9" />
+    <Property Name="telefone" Type="char" MaxLength="12" />
+    <Property Name="celular" Type="char" MaxLength="13" />
     <Property Name="email" Type="varchar" MaxLength="100" />
     <Property Name="tipo_carteira" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="cnh" Type="char" MaxLength="11" Nullable="false" />
@@ -148,7 +161,7 @@
     <Property Name="data_saida" Type="date" Nullable="false" />
     <Property Name="prev_chegada" Type="date" Nullable="false" />
     <Property Name="data_chegada" Type="date" Nullable="false" />
-    <Property Name="valor" Type="float" Nullable="false" />
+    <Property Name="valor" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="NF" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_tb_locacao_tb_pessoa">
@@ -199,6 +212,42 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_tb_ocorrencia_tb_pessoa">
+    <End Role="tb_pessoa" Type="Self.tb_pessoa" Multiplicity="1" />
+    <End Role="tb_ocorrencia" Type="Self.tb_ocorrencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_pessoa">
+        <PropertyRef Name="ID_pessoa" />
+      </Principal>
+      <Dependent Role="tb_ocorrencia">
+        <PropertyRef Name="cod_motorista" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_ocorrencia_tb_veiculo">
+    <End Role="tb_veiculo" Type="Self.tb_veiculo" Multiplicity="1" />
+    <End Role="tb_ocorrencia" Type="Self.tb_ocorrencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_veiculo">
+        <PropertyRef Name="cod_veiculo" />
+      </Principal>
+      <Dependent Role="tb_ocorrencia">
+        <PropertyRef Name="cod_veiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_ocorrencia_tb_viagem">
+    <End Role="tb_viagem" Type="Self.tb_viagem" Multiplicity="1" />
+    <End Role="tb_ocorrencia" Type="Self.tb_ocorrencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_viagem">
+        <PropertyRef Name="cod_viagem" />
+      </Principal>
+      <Dependent Role="tb_ocorrencia">
+        <PropertyRef Name="cod_viagem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_tb_viagem_tb_pessoa">
     <End Role="tb_pessoa" Type="Self.tb_pessoa" Multiplicity="1" />
     <End Role="tb_viagem" Type="Self.tb_viagem" Multiplicity="*" />
@@ -241,6 +290,7 @@
     <EntitySet Name="tb_locacao" EntityType="Self.tb_locacao" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_login" EntityType="Self.tb_login" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_manutencao" EntityType="Self.tb_manutencao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_ocorrencia" EntityType="Self.tb_ocorrencia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_pessoa" EntityType="Self.tb_pessoa" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_posto" EntityType="Self.tb_posto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_veiculo" EntityType="Self.tb_veiculo" Schema="dbo" store:Type="Tables" />
@@ -260,6 +310,18 @@
     <AssociationSet Name="FK_tb_manutencao_tb_veiculo" Association="Self.FK_tb_manutencao_tb_veiculo">
       <End Role="tb_veiculo" EntitySet="tb_veiculo" />
       <End Role="tb_manutencao" EntitySet="tb_manutencao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_ocorrencia_tb_pessoa" Association="Self.FK_tb_ocorrencia_tb_pessoa">
+      <End Role="tb_pessoa" EntitySet="tb_pessoa" />
+      <End Role="tb_ocorrencia" EntitySet="tb_ocorrencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_ocorrencia_tb_veiculo" Association="Self.FK_tb_ocorrencia_tb_veiculo">
+      <End Role="tb_veiculo" EntitySet="tb_veiculo" />
+      <End Role="tb_ocorrencia" EntitySet="tb_ocorrencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_ocorrencia_tb_viagem" Association="Self.FK_tb_ocorrencia_tb_viagem">
+      <End Role="tb_viagem" EntitySet="tb_viagem" />
+      <End Role="tb_ocorrencia" EntitySet="tb_ocorrencia" />
     </AssociationSet>
     <AssociationSet Name="FK_tb_viagem_tb_pessoa" Association="Self.FK_tb_viagem_tb_pessoa">
       <End Role="tb_pessoa" EntitySet="tb_pessoa" />

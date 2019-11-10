@@ -15,6 +15,7 @@ namespace Gestmove.Controllers
         private bd_gestmoveEntities db = new bd_gestmoveEntities();
 
         // GET: Viagens
+        [Authorize]
         public ActionResult Index()
         {
             var tb_viagem = db.tb_viagem.Include(t => t.tb_pessoa).Include(t => t.tb_pessoa1).Include(t => t.tb_veiculo);
@@ -37,6 +38,7 @@ namespace Gestmove.Controllers
         }
 
         // GET: Viagens/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.cod_cliente = new SelectList(db.tb_pessoa, "ID_pessoa", "nome_abreviado");
@@ -66,6 +68,7 @@ namespace Gestmove.Controllers
         }
 
         // GET: Viagens/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -103,6 +106,7 @@ namespace Gestmove.Controllers
         }
 
         // GET: Viagens/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)

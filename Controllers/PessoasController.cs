@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -50,6 +52,7 @@ namespace Gestmove.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID_pessoa,tipo,nome_abreviado,razao_social,f_j,rg_cnpj,cpf_ie,logradouro,numero,compl,cep,bairro,municipio,uf,regiao,telefone,celular,email,tipo_carteira,cnh,pontos_carteira,data_contratacao,tipo_fornec_msa,tipo_msa1,tipo_msa2,tipo_msa3,observacao")] tb_pessoa tb_pessoa)
         {
+
             if (ModelState.IsValid)
             {
                 db.tb_pessoa.Add(tb_pessoa);

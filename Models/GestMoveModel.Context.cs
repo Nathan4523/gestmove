@@ -30,6 +30,7 @@ namespace Gestmove.Models
         public virtual DbSet<tb_locacao> tb_locacao { get; set; }
         public virtual DbSet<tb_login> tb_login { get; set; }
         public virtual DbSet<tb_manutencao> tb_manutencao { get; set; }
+        public virtual DbSet<tb_ocorrencia> tb_ocorrencia { get; set; }
         public virtual DbSet<tb_pessoa> tb_pessoa { get; set; }
         public virtual DbSet<tb_posto> tb_posto { get; set; }
         public virtual DbSet<tb_veiculo> tb_veiculo { get; set; }

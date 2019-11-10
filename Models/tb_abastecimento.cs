@@ -19,6 +19,6 @@ namespace Gestmove.Models
         public int cod_posto { get; set; }
         public System.DateTime data { get; set; }
         public int litros { get; set; }
-        public double valor { get; set; }
+        public decimal valor { get; set; }
     }
 }
