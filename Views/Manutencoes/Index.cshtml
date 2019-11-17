@@ -4,60 +4,71 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@*Breadcrumb*@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item">Manutenções</li>
+    <li class="breadcrumb-item active">Todos</li>
+</ol>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.tipo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.motivo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.data)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.valor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tb_pessoa.nome_abreviado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tb_veiculo.proprio_alugado)
-        </th>
-        <th></th>
-    </tr>
+<section class="container-manutencoes">
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-8">
+                            <h2>Todas as manutenções</h2>
+                        </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.tipo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.motivo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.data)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.valor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tb_pessoa.nome_abreviado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tb_veiculo.proprio_alugado)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.cod_manutencao }) |
-            @Html.ActionLink("Details", "Details", new { id=item.cod_manutencao }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.cod_manutencao })
-        </td>
-    </tr>
-}
+                        <div class="col-4 d-flex justify-content-end">
+                            <a href="/Manutencoes/Create" class="btn btn-add"><i class="fas fa-plus mr-3"></i> Novo</a>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <table class="table table-responsive-sm table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Veículo</th>
+                                        @*<th>Motorista</th>*@
+                                        <th>Valor</th>
+                                        <th>Tipo</th>
+                                        <th>Data</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.tb_veiculo.modelo)</td>
+                                            @*<td>@Html.DisplayFor(modelItem => item.tb_pessoa.nome_abreviado)</td>*@
+                                            <td>@Html.DisplayFor(modelItem => item.valor)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.tipo)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.data)</td>
 
-</table>
+                                            <td class="links-acoes">
+                                                <a href="/Manutencoes/Edit/@Html.DisplayFor(modelItem => item.cod_manutencao)" class="btn-funcoes btn-edit">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+
+                                                <a href="/Manutencoes/Details/@Html.DisplayFor(modelItem => item.cod_manutencao)" class="btn-funcoes btn-show mx-3">
+                                                    <i class="far fa-eye"></i>
+                                                </a>
+
+                                                <a href="/Manutencoes/Delete/@Html.DisplayFor(modelItem => item.cod_manutencao)" class="btn-funcoes btn-delete">
+                                                    <i class="far fa-trash-alt text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

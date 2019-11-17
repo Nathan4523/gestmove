@@ -43,6 +43,18 @@
         opacity: 1;
         transition: 0.3s;
     }
+
+.btn-delete-all {
+    background-color: #eaeaea;
+    color: #f86c6b !important;
+    font-weight: 700;
+    font-size: 18px;
+}
+    .btn-delete-all:hover {
+        background-color: #d20504;
+        color: #fff !important;
+        transition: 0.3s;
+    }
 /*
     *Menu top
 */
@@ -118,5 +130,140 @@
 }
 
 .container-pessoas .card .card-body .list-group .active {
+    background-color: #001f3e;
+}
+
+/**
+   * Módulo veiculos
+*/
+
+.container-veiculos table .links-acoes > .btn-funcoes > svg {
+    color: #000;
+}
+
+.container-veiculos table .links-acoes .btn-edit:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-veiculos table .links-acoes .btn-show:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-veiculos table .links-acoes .btn-delete:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-veiculos .card .card-body .list-group .active {
+    background-color: #001f3e;
+}
+
+/**
+   * Módulo viagem
+*/
+
+.container-viagens table .links-acoes > .btn-funcoes > svg {
+    color: #000;
+}
+
+.container-viagens table .links-acoes .btn-edit:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-viagens table .links-acoes .btn-show:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-viagens table .links-acoes .btn-delete:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-viagens .card .card-body .list-group .active {
+    background-color: #001f3e;
+}
+
+/**
+   * Módulo Manutencoes
+*/
+
+.container-manutencoes table .links-acoes > .btn-funcoes > svg {
+    color: #000;
+}
+
+.container-manutencoes table .links-acoes .btn-edit:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-manutencoes table .links-acoes .btn-show:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-manutencoes table .links-acoes .btn-delete:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-manutencoes .card .card-body .list-group .active {
+    background-color: #001f3e;
+}
+
+/**
+   * Módulo Ocorrencias
+*/
+
+.container-ocorrencias table .links-acoes > .btn-funcoes > svg {
+    color: #000;
+}
+
+.container-ocorrencias table .links-acoes .btn-edit:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-ocorrencias table .links-acoes .btn-show:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-ocorrencias table .links-acoes .btn-delete:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-ocorrencias .card .card-body .list-group .active {
+    background-color: #001f3e;
+}
+
+/**
+   * Módulo locações
+*/
+
+.container-locacoes table .links-acoes > .btn-funcoes > svg {
+    color: #000;
+}
+
+.container-locacoes table .links-acoes .btn-edit:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-locacoes table .links-acoes .btn-show:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-locacoes table .links-acoes .btn-delete:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-locacoes .card .card-body .list-group .active {
     background-color: #001f3e;
 }

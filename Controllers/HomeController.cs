@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,9 +11,24 @@ namespace Gestmove.Controllers
 {
     public class HomeController : Controller
     {
+
+        private bd_gestmoveEntities db = new bd_gestmoveEntities();
+
         [Authorize]
         public ActionResult Index()
         {
+            var motoristas = db.tb_pessoa.Select(x => new { x.ID_pessoa, x.tipo }).Where(s => s.tipo == 3).Count();
+            var clientes = db.tb_pessoa.Select(x => new { x.ID_pessoa, x.tipo }).Where(s => s.tipo == 2).Count();
+            var veiculos = db.tb_veiculo.Select(x => new { x.cod_veiculo, x.proprio_alugado }).Where(s => s.proprio_alugado == "Sim").Count();
+            var ocorrencias = db.tb_ocorrencia.Select(x => new { x.cod_ocorrencia }).Count();
+            var tb_viagem = db.tb_viagem.Include(t => t.tb_pessoa).Include(t => t.tb_pessoa1).Include(t => t.tb_veiculo);
+
+            ViewBag.cod_motoristas = motoristas;
+            ViewBag.cod_clientes = clientes;
+            ViewBag.cod_veiculos = veiculos;
+            ViewBag.cod_ocorrencias = ocorrencias;
+            ViewBag.cod_viagens = tb_viagem;
+
             return View();
         }
 

@@ -2,113 +2,183 @@
 
 @{
     ViewBag.Title = "Details";
+    ViewBag.Link = "Veiculos";
 }
 
-<h2>Details</h2>
+@*Breadcrumb*@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item">Detalhes</li>
+    <li class="breadcrumb-item active">@Html.DisplayFor(model => model.cod_veiculo)</li>
+</ol>
 
-<div>
-    <h4>tb_veiculo</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.proprio_alugado)
-        </dt>
+<section class="container-veiculos">
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mt-5">
+                        <div class="col-4">
+                            <div class="list-group" id="list-tab" role="tablist">
+                                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="tab" href="#list-pessoais" role="tab" aria-controls="list-home" aria-selected="true">Dados do veículo</a>
+                                <a class="list-group-item list-group-item-action" id="list-endereco-list" data-toggle="tab" href="#list-endereco" role="tab" aria-controls="list-profile" aria-selected="false">Visual do veículo</a>
+                            </div>
+                        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.proprio_alugado)
-        </dd>
+                        <div class="col-md-8 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <i class="fas fa-car mr-3"></i> @Html.DisplayFor(model => model.modelo)
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content border-0" id="nav-tabContent">
+                                        <div class="tab-pane fade active show" id="list-pessoais" role="tabpanel" aria-labelledby="list-home-list">
+                                            <div class="list-view">
+                                                <h4>
+                                                    Está disponivel para aluguel?
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cod_fornecedor)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.proprio_alugado)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.cod_fornecedor)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Fornecedor
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.placa)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.cod_fornecedor)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.placa)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Placa
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.uf)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.placa)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.uf)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Uf da placa
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.chassi)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.uf)
+                                                </p>
+                                            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.chassi)
-        </dd>
+                                            <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo_chassi)
-        </dt>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Chassi
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.tipo_chassi)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.chassi)
+                                                </p>
+                                            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.marca)
-        </dt>
+                                            <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.marca)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Tipo de Chassi
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.modelo)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.tipo_chassi)
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="list-endereco" role="tabpanel" aria-labelledby="list-profile-list">
+                                            <div class="list-view">
+                                                <h4>
+                                                    Marca
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.modelo)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.marca)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cor)
-        </dt>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Modelo
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.cor)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.modelo)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.km)
-        </dt>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Cor do veículo
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.km)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.cor)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.combustivel)
-        </dt>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Km
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.combustivel)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.km)
+                                                </p>
+                                            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.observacao)
-        </dt>
+                                            <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.observacao)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Tipo de combustivel
+                                                </h4>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.cod_veiculo }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.combustivel)
+                                                </p>
+                                            </div>
+
+                                            <hr>
+
+                                            <div class="list-view">
+                                                <h4>
+                                                    Observação
+                                                </h4>
+
+                                                <p>
+                                                    @Html.DisplayFor(model => model.observacao)
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="/Veiculos" class="btn btn-default text-center">
+                                <i class="fas fa-arrow-left mr-3"></i> Voltar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

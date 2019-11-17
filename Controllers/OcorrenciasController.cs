@@ -15,6 +15,7 @@ namespace Gestmove.Controllers
         private bd_gestmoveEntities db = new bd_gestmoveEntities();
 
         // GET: Oorrencias
+        [Authorize]
         public ActionResult Index()
         {
             var tb_ocorrencia = db.tb_ocorrencia.Include(t => t.tb_pessoa).Include(t => t.tb_veiculo).Include(t => t.tb_viagem);
@@ -22,6 +23,7 @@ namespace Gestmove.Controllers
         }
 
         // GET: Oorrencias/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +39,7 @@ namespace Gestmove.Controllers
         }
 
         // GET: Oorrencias/Create
+        [Authorize]
         public ActionResult Create()
         {
             var motoristas = db.tb_pessoa.Select(x => new { x.ID_pessoa, x.tipo, x.nome_abreviado }).Where(s => s.tipo == 3);
@@ -54,6 +57,7 @@ namespace Gestmove.Controllers
         // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "cod_ocorrencia,cod_viagem,cod_motorista,cod_veiculo,motivo,pontos,valor,obs_motorista")] tb_ocorrencia tb_ocorrencia)
         {
@@ -71,6 +75,7 @@ namespace Gestmove.Controllers
         }
 
         // GET: Oorrencias/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -92,6 +97,7 @@ namespace Gestmove.Controllers
         // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "cod_ocorrencia,cod_viagem,cod_motorista,cod_veiculo,motivo,pontos,valor,obs_motorista")] tb_ocorrencia tb_ocorrencia)
         {
@@ -108,6 +114,7 @@ namespace Gestmove.Controllers
         }
 
         // GET: Oorrencias/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -124,6 +131,7 @@ namespace Gestmove.Controllers
 
         // POST: Oorrencias/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

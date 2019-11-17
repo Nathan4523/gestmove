@@ -4,78 +4,150 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.data_locacao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.data_entrega)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.qtd_dias)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.km_original)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.km_nova)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.valor_locacao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NF)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tb_pessoa.nome_abreviado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tb_veiculo.proprio_alugado)
-        </th>
-        <th></th>
-    </tr>
+@*Breadcrumb*@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item">Locações</li>
+    <li class="breadcrumb-item active">Todos</li>
+</ol>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.data_locacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.data_entrega)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.qtd_dias)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.km_original)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.km_nova)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.valor_locacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NF)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tb_pessoa.nome_abreviado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tb_veiculo.proprio_alugado)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.cod_locacao }) |
-            @Html.ActionLink("Details", "Details", new { id=item.cod_locacao }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.cod_locacao })
-        </td>
-    </tr>
-}
+<section class="container-locacoes">
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-8">
+                            <h2>Todos as locações</h2>
+                        </div>
 
-</table>
+                        <div class="col-4 d-flex justify-content-end">
+                            <a href="/Locacoes/Create" class="btn btn-add"><i class="fas fa-plus mr-3"></i> Novo</a>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <table class="table table-responsive-sm table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Motorista</th>
+                                        <th>Data da locação</th>
+                                        <th>Data de entrega</th>
+                                        <th>Dias</th>
+                                        <th>Nota fiscal</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.tb_pessoa.nome_abreviado)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.data_locacao)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.data_entrega)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.qtd_dias)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.NF)</td>
+
+                                            <td class="links-acoes">
+                                                <a href="/Locacoes/Edit/@Html.DisplayFor(modelItem => item.cod_locacao)" class="btn-funcoes btn-edit">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+
+                                                <a href="/Locacoes/Details/@Html.DisplayFor(modelItem => item.cod_locacao)" class="btn-funcoes btn-show mx-3">
+                                                    <i class="far fa-eye"></i>
+                                                </a>
+
+                                                <a href="/Locacoes/Delete/@Html.DisplayFor(modelItem => item.cod_locacao)" class="btn-funcoes btn-delete">
+                                                    <i class="far fa-trash-alt text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@*<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.data_locacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data_entrega)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.qtd_dias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.km_original)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.km_nova)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.valor_locacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tb_pessoa.nome_abreviado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tb_veiculo.proprio_alugado)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.data_locacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.data_entrega)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.qtd_dias)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.km_original)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.km_nova)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.valor_locacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NF)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tb_pessoa.nome_abreviado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tb_veiculo.proprio_alugado)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.cod_locacao }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.cod_locacao }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.cod_locacao })
+                </td>
+            </tr>
+        }
+
+    </table>*@

@@ -4,79 +4,134 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@*Breadcrumb*@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item">Detalhes</li>
+    <li class="breadcrumb-item active">@Html.DisplayFor(model => model.cod_viagem)</li>
+</ol>
 
-<div>
-    <h4>tb_viagem</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.data_saida)
-        </dt>
+<section class="container-viagens">
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mt-5">
+                        <div class="col-4">
+                            <div class="list-group" id="list-tab" role="tablist">
+                                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="tab" href="#list-pessoais" role="tab" aria-controls="list-home" aria-selected="true">Dados iniciais</a>
+                                <a class="list-group-item list-group-item-action" id="list-endereco-list" data-toggle="tab" href="#list-endereco" role="tab" aria-controls="list-profile" aria-selected="false">Entrada e saída</a>
+                                <a class="list-group-item list-group-item-action" id="list-nfe-list" data-toggle="tab" href="#list-nfeValor" role="tab" aria-controls="list-profile" aria-selected="false">Valores e nota fiscais</a>
+                            </div>
+                        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.data_saida)
-        </dd>
+                        <div class="col-md-8 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <i class="fas fa-route mr-3"></i> Detalhes da viagem #@Html.DisplayFor(model => model.cod_viagem)
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content border-0" id="nav-tabContent">
+                                        <div class="tab-pane fade active show" id="list-pessoais" role="tabpanel" aria-labelledby="list-home-list">
+                                            <div class="list-view">
+                                                <h4>
+                                                    Motorista
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.prev_chegada)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.tb_pessoa1.nome_abreviado)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.prev_chegada)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Cliente
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.data_chegada)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.tb_pessoa.nome_abreviado)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.data_chegada)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Veículo
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.valor)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.tb_veiculo.modelo)
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="list-endereco" role="tabpanel" aria-labelledby="list-profile-list">
+                                            <div class="list-view">
+                                                <h4>
+                                                    Data da saída
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.valor)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.data_saida)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NF)
-        </dt>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Data preventiva da chegada
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.NF)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.prev_chegada)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tb_pessoa.nome_abreviado)
-        </dt>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Data de chegada
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.tb_pessoa.nome_abreviado)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.data_chegada)
+                                                </p>
+                                            </div>
+                                        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tb_pessoa1.nome_abreviado)
-        </dt>
+                                        <div class="tab-pane fade" id="list-nfeValor" role="tabpanel" aria-labelledby="list-profile-list">
+                                            <div class="list-view">
+                                                <h4>
+                                                    Valor da viagem
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.tb_pessoa1.nome_abreviado)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.valor)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tb_veiculo.proprio_alugado)
-        </dt>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Nota fiscal
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.tb_veiculo.proprio_alugado)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.NF)
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.cod_viagem }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                            <a href="/Viagens" class="btn btn-default text-center">
+                                <i class="fas fa-arrow-left mr-3"></i> Voltar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -35,6 +35,10 @@ namespace Gestmove.Controllers
             {
                 return HttpNotFound();
             }
+
+            var veiculos = db.tb_veiculo.Select(x => new { x.cod_veiculo, x.modelo, x.proprio_alugado });
+            ViewBag.cod_veiculo = new SelectList(veiculos, "cod_veiculo", "modelo");
+
             return View(tb_manutencao);
         }
 
@@ -84,7 +88,9 @@ namespace Gestmove.Controllers
             }
             //ViewBag.cod_oficina = new SelectList(db.tb_pessoa, "ID_pessoa", "nome_abreviado", tb_manutencao.cod_oficina);
             //ViewBag.cod_veiculo = new SelectList(db.tb_veiculo, "cod_veiculo", "proprio_alugado", tb_manutencao.cod_veiculo);
-            ViewBag.cod_veiculo = new SelectList(db.tb_veiculo, "cod_veiculo", "cod_veiculo");
+            
+            var veiculos = db.tb_veiculo.Select(x => new { x.cod_veiculo, x.modelo, x.proprio_alugado });
+            ViewBag.cod_veiculo = new SelectList(veiculos, "cod_veiculo", "modelo");
             return View(tb_manutencao);
         }
 

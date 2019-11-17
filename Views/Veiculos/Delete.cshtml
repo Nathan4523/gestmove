@@ -4,117 +4,366 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>tb_veiculo</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.proprio_alugado)
-        </dt>
+@*Breadcrumb*@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item">Deletar</li>
+    <li class="breadcrumb-item active">@Html.DisplayFor(model => model.cod_veiculo)</li>
+</ol>
 
-        <dd>
-            @Html.DisplayFor(model => model.proprio_alugado)
-        </dd>
+<section class="container-veiculos">
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mt-2">
+                        <div class="col-12 text-right d-flex flex-row justify-content-end">
+                            <a href="/Veiculos" class="btn btn-default m-0">
+                                <i class="fas fa-arrow-left mr-3"></i> Voltar
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mt-3 justify-content-center">
+                        <div class="col-12">
+                            <div class="card text-white bg-danger">
+                                <div class="card-header">
+                                    <h4 class="text-light text-center mb-0">Deseja realmente deleter este veículo?</h4>
+                                </div>
+                                <div class="card-body">
+                                    @using (Html.BeginForm())
+                                    {
+                                        @Html.AntiForgeryToken()
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cod_fornecedor)
-        </dt>
+                                        <div class="form-actions no-color text-center">
+                                            <button type="submit" class="btn text-light text-uppercase btn-delete-all"><i class="fas fa-trash mr-3"></i> SIM</button>
+                                        </div>
+                                    }
 
-        <dd>
-            @Html.DisplayFor(model => model.cod_fornecedor)
-        </dd>
+                                    <div class="conteudo d-none">
+                                        <div class="list-view">
+                                            <h4>
+                                                Está disponivel para aluguel?
+                                            </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.placa)
-        </dt>
+                                            <p>
+                                                @Html.DisplayFor(model => model.proprio_alugado)
+                                            </p>
+                                        </div>
+                                        <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.placa)
-        </dd>
+                                        <div class="list-view">
+                                            <h4>
+                                                Fornecedor
+                                            </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.uf)
-        </dt>
+                                            <p>
+                                                @Html.DisplayFor(model => model.cod_fornecedor)
+                                            </p>
+                                        </div>
+                                        <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.uf)
-        </dd>
+                                        <div class="list-view">
+                                            <h4>
+                                                Placa
+                                            </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.chassi)
-        </dt>
+                                            <p>
+                                                @Html.DisplayFor(model => model.placa)
+                                            </p>
+                                        </div>
+                                        <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.chassi)
-        </dd>
+                                        <div class="list-view">
+                                            <h4>
+                                                Uf da placa
+                                            </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo_chassi)
-        </dt>
+                                            <p>
+                                                @Html.DisplayFor(model => model.uf)
+                                            </p>
+                                        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.tipo_chassi)
-        </dd>
+                                        <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.marca)
-        </dt>
+                                        <div class="list-view">
+                                            <h4>
+                                                Chassi
+                                            </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.marca)
-        </dd>
+                                            <p>
+                                                @Html.DisplayFor(model => model.chassi)
+                                            </p>
+                                        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.modelo)
-        </dt>
+                                        <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.modelo)
-        </dd>
+                                        <div class="list-view">
+                                            <h4>
+                                                Tipo de Chassi
+                                            </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cor)
-        </dt>
+                                            <p>
+                                                @Html.DisplayFor(model => model.tipo_chassi)
+                                            </p>
+                                        </div><div class="list-view">
+                                            <h4>
+                                                Está disponivel para aluguel?
+                                            </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.cor)
-        </dd>
+                                            <p>
+                                                @Html.DisplayFor(model => model.proprio_alugado)
+                                            </p>
+                                        </div>
+                                        <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.km)
-        </dt>
+                                        <div class="list-view">
+                                            <h4>
+                                                Fornecedor
+                                            </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.km)
-        </dd>
+                                            <p>
+                                                @Html.DisplayFor(model => model.cod_fornecedor)
+                                            </p>
+                                        </div>
+                                        <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.combustivel)
-        </dt>
+                                        <div class="list-view">
+                                            <h4>
+                                                Placa
+                                            </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.combustivel)
-        </dd>
+                                            <p>
+                                                @Html.DisplayFor(model => model.placa)
+                                            </p>
+                                        </div>
+                                        <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.observacao)
-        </dt>
+                                        <div class="list-view">
+                                            <h4>
+                                                Uf da placa
+                                            </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.observacao)
-        </dd>
+                                            <p>
+                                                @Html.DisplayFor(model => model.uf)
+                                            </p>
+                                        </div>
 
-    </dl>
+                                        <hr>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+                                        <div class="list-view">
+                                            <h4>
+                                                Chassi
+                                            </h4>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                                            <p>
+                                                @Html.DisplayFor(model => model.chassi)
+                                            </p>
+                                        </div>
+
+                                        <hr>
+
+                                        <div class="list-view">
+                                            <h4>
+                                                Tipo de Chassi
+                                            </h4>
+
+                                            <p>
+                                                @Html.DisplayFor(model => model.tipo_chassi)
+                                            </p>
+                                        </div>
+
+                                        <hr />
+
+                                        <div class="list-view">
+                                            <h4>
+                                                Marca
+                                            </h4>
+
+                                            <p>
+                                                @Html.DisplayFor(model => model.marca)
+                                            </p>
+                                        </div>
+                                        <hr>
+
+                                        <div class="list-view">
+                                            <h4>
+                                                Modelo
+                                            </h4>
+
+                                            <p>
+                                                @Html.DisplayFor(model => model.modelo)
+                                            </p>
+                                        </div>
+                                        <hr>
+
+                                        <div class="list-view">
+                                            <h4>
+                                                Cor do veículo
+                                            </h4>
+
+                                            <p>
+                                                @Html.DisplayFor(model => model.cor)
+                                            </p>
+                                        </div>
+                                        <hr>
+
+                                        <div class="list-view">
+                                            <h4>
+                                                Km
+                                            </h4>
+
+                                            <p>
+                                                @Html.DisplayFor(model => model.km)
+                                            </p>
+                                        </div>
+
+                                        <hr>
+
+                                        <div class="list-view">
+                                            <h4>
+                                                Tipo de combustivel
+                                            </h4>
+
+                                            <p>
+                                                @Html.DisplayFor(model => model.combustivel)
+                                            </p>
+                                        </div>
+
+                                        <hr>
+
+                                        <div class="list-view">
+                                            <h4>
+                                                Observação
+                                            </h4>
+
+                                            <p>
+                                                @Html.DisplayFor(model => model.observacao)
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    }
-</div>
+    </div>
+</section>
+
+
+@*<h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>tb_veiculo</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.proprio_alugado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.proprio_alugado)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.cod_fornecedor)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cod_fornecedor)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.placa)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.placa)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.uf)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.uf)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.chassi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.chassi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.tipo_chassi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tipo_chassi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.marca)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.marca)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.modelo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.modelo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.cor)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cor)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.km)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.km)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.combustivel)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.combustivel)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.observacao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.observacao)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>*@

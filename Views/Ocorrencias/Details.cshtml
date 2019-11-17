@@ -4,71 +4,113 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@*Breadcrumb*@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item">Detalhes</li>
+    <li class="breadcrumb-item active">@Html.DisplayFor(model => model.cod_ocorrencia)</li>
+</ol>
 
-<div>
-    <h4>tb_ocorrencia</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.motivo)
-        </dt>
+<section class="container-ocorrencias">
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mt-5">
+                        <div class="col-md-8 offset-md-2 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <i class="fas fa-file-signature mr-3"></i> Detalhes da ocorrência #@Html.DisplayFor(model => model.cod_ocorrencia)
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content border-0" id="nav-tabContent">
+                                        <div class="tab-pane fade active show" id="list-pessoais" role="tabpanel" aria-labelledby="list-home-list">
+                                            <div class="list-view">
+                                                <h4>
+                                                    Código da viagem
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.motivo)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.tb_viagem.cod_viagem)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.pontos)
-        </dt>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Motorista responsável
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.pontos)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.tb_pessoa.nome_abreviado)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.valor)
-        </dt>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Veículo usado na viagem
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.valor)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.tb_veiculo.modelo)
+                                                </p>
+                                            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.obs_motorista)
-        </dt>
+                                            <hr />
 
-        <dd>
-            @Html.DisplayFor(model => model.obs_motorista)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Motivo da ocorrência
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tb_pessoa.nome_abreviado)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.motivo)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.tb_pessoa.nome_abreviado)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Pontos na carteira
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tb_veiculo.proprio_alugado)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.pontos)
+                                                </p>
+                                            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.tb_veiculo.proprio_alugado)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Valor da ocorrência
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tb_viagem.cod_viagem)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.valor)
+                                                </p>
+                                            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.tb_viagem.cod_viagem)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Observação
+                                                </h4>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.cod_ocorrencia }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.pontos)
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="/Ocorrencias" class="btn btn-default text-center">
+                                <i class="fas fa-arrow-left mr-3"></i> Voltar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

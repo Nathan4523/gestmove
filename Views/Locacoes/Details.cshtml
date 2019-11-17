@@ -4,87 +4,145 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@*Breadcrumb*@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item">Detalhes</li>
+    <li class="breadcrumb-item active">@Html.DisplayFor(model => model.tb_pessoa.nome_abreviado)</li>
+</ol>
 
-<div>
-    <h4>tb_locacao</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.data_locacao)
-        </dt>
+<section class="container-locacoes">
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mt-5">
+                        <div class="col-4">
+                            <div class="list-group" id="list-tab" role="tablist">
+                                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="tab" href="#list-pessoais" role="tab" aria-controls="list-home" aria-selected="true">Dados do contrato</a>
+                                <a class="list-group-item list-group-item-action" id="list-endereco-list" data-toggle="tab" href="#list-endereco" role="tab" aria-controls="list-profile" aria-selected="false">Dados do veículo</a>
+                            </div>
+                        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.data_locacao)
-        </dd>
+                        <div class="col-md-8 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <i class="fas fa-broadcast-tower mr-3"></i> Detalhes da Locação #@Html.DisplayFor(model => model.cod_locacao)
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="tab-content border-0" id="nav-tabContent">
+                                            <div class="tab-pane fade active show" id="list-pessoais" role="tabpanel" aria-labelledby="list-home-list">
+                                                <div class="list-view">
+                                                    <h4>
+                                                        Nome do motorista
+                                                    </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.data_entrega)
-        </dt>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.tb_pessoa.nome_abreviado)
+                                                    </p>
+                                                </div>
+                                                <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.data_entrega)
-        </dd>
+                                                <div class="list-view">
+                                                    <h4>
+                                                        Data da locação
+                                                    </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.qtd_dias)
-        </dt>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.data_locacao)
+                                                    </p>
+                                                </div>
+                                                <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.qtd_dias)
-        </dd>
+                                                <div class="list-view">
+                                                    <h4>
+                                                        Data de entrega
+                                                    </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.km_original)
-        </dt>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.data_entrega)
+                                                    </p>
+                                                </div>
+                                                <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.km_original)
-        </dd>
+                                                <div class="list-view">
+                                                    <h4>
+                                                        Dias de locação
+                                                    </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.km_nova)
-        </dt>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.qtd_dias)
+                                                    </p>
+                                                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.km_nova)
-        </dd>
+                                                <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.valor_locacao)
-        </dt>
+                                                <div class="list-view">
+                                                    <h4>
+                                                        Valor da locação
+                                                    </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.valor_locacao)
-        </dd>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.valor_locacao)
+                                                    </p>
+                                                </div>
+                                                <hr>
+                                            </div>
+                                            <div class="tab-pane fade" id="list-endereco" role="tabpanel" aria-labelledby="list-profile-list">
+                                                <div class="list-view">
+                                                    <h4>
+                                                        Km original
+                                                    </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NF)
-        </dt>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.km_original)
+                                                    </p>
+                                                </div>
+                                                <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.NF)
-        </dd>
+                                                <div class="list-view">
+                                                    <h4>
+                                                        Novos km's
+                                                    </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tb_pessoa.nome_abreviado)
-        </dt>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.km_nova)
+                                                    </p>
+                                                </div>
+                                                <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.tb_pessoa.nome_abreviado)
-        </dd>
+                                                <div class="list-view">
+                                                    <h4>
+                                                        Nota fiscal
+                                                    </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tb_veiculo.proprio_alugado)
-        </dt>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.NF)
+                                                    </p>
+                                                </div>
+                                                <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.tb_veiculo.proprio_alugado)
-        </dd>
+                                                <div class="list-view">
+                                                    <h4>
+                                                        Veículo para alugar?
+                                                    </h4>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.cod_locacao }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                                                    <p>
+                                                        @Html.DisplayFor(model => model.tb_veiculo.proprio_alugado)
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <a href="/Locacoes" class="btn btn-default text-center">
+                                    <i class="fas fa-arrow-left mr-3"></i> Voltar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

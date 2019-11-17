@@ -4,229 +4,258 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+@*Breadcrumb*@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item">Deletar</li>
+    <li class="breadcrumb-item active">@Html.DisplayFor(model => model.ID_pessoa)</li>
+</ol>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>tb_pessoa</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo)
-        </dt>
+<section class="container-ocorrencias">
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mt-2">
+                        <div class="col-12 text-right d-flex flex-row justify-content-end">
+                            <a href="/Pessoas" class="btn btn-default m-0">
+                                <i class="fas fa-arrow-left mr-3"></i> Voltar
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mt-3 justify-content-center">
+                        <div class="col-12">
+                            <div class="card text-white bg-danger">
+                                <div class="card-header">
+                                    <h4 class="text-light text-center mb-0">Deseja realmente deletar esta pessoa?</h4>
+                                </div>
+                                <div class="card-body">
+                                    @using (Html.BeginForm())
+                                    {
+                                        @Html.AntiForgeryToken()
 
-        <dd>
-            @Html.DisplayFor(model => model.tipo)
-        </dd>
+                                        <div class="form-actions no-color text-center">
+                                            <button type="submit" class="btn text-light text-uppercase btn-delete-all"><i class="fas fa-trash mr-3"></i> SIM</button>
+                                        </div>
+                                    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nome_abreviado)
-        </dt>
+                                    <div class="conteudo d-none">
+                                        <dl class="dl-horizontal">
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.tipo)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nome_abreviado)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.tipo)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.razao_social)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.nome_abreviado)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.razao_social)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.nome_abreviado)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.f_j)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.razao_social)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.f_j)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.razao_social)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.rg_cnpj)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.f_j)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.rg_cnpj)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.f_j)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cpf_ie)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.rg_cnpj)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.cpf_ie)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.rg_cnpj)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.logradouro)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.cpf_ie)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.logradouro)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.cpf_ie)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.numero)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.logradouro)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.numero)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.logradouro)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.compl)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.numero)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.compl)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.numero)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cep)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.compl)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.cep)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.compl)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.bairro)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.cep)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.bairro)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.cep)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.municipio)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.bairro)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.municipio)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.bairro)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.uf)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.municipio)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.uf)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.municipio)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.regiao)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.uf)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.regiao)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.uf)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.telefone)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.regiao)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.telefone)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.regiao)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.celular)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.telefone)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.celular)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.telefone)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.celular)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.email)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.celular)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo_carteira)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.email)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.tipo_carteira)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.email)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cnh)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.tipo_carteira)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.cnh)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.tipo_carteira)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.pontos_carteira)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.cnh)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.pontos_carteira)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.cnh)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.data_contratacao)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.pontos_carteira)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.data_contratacao)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.pontos_carteira)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo_fornec_msa)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.data_contratacao)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.tipo_fornec_msa)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.data_contratacao)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo_msa1)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.tipo_fornec_msa)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.tipo_msa1)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.tipo_fornec_msa)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo_msa2)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.tipo_msa1)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.tipo_msa2)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.tipo_msa1)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo_msa3)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.tipo_msa2)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.tipo_msa3)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.tipo_msa2)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.observacao)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.tipo_msa3)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.observacao)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.tipo_msa3)
+                                            </dd>
 
-    </dl>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.observacao)
+                                            </dt>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                                            <dd>
+                                                @Html.DisplayFor(model => model.observacao)
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    }
-</div>
+    </div>
+</section>

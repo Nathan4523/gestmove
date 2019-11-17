@@ -4,85 +4,114 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+@*Breadcrumb*@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item">Deletar</li>
+    <li class="breadcrumb-item active">@Html.DisplayFor(model => model.cod_viagem)</li>
+</ol>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>tb_viagem</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.data_saida)
-        </dt>
+<section class="container-viagens">
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mt-2">
+                        <div class="col-12 text-right d-flex flex-row justify-content-end">
+                            <a href="/Viagens" class="btn btn-default m-0">
+                                <i class="fas fa-arrow-left mr-3"></i> Voltar
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mt-3 justify-content-center">
+                        <div class="col-12">
+                            <div class="card text-white bg-danger">
+                                <div class="card-header">
+                                    <h4 class="text-light text-center mb-0">Deseja realmente deletar esta viagem?</h4>
+                                </div>
+                                <div class="card-body">
+                                    @using (Html.BeginForm())
+                                    {
+                                        @Html.AntiForgeryToken()
 
-        <dd>
-            @Html.DisplayFor(model => model.data_saida)
-        </dd>
+                                        <div class="form-actions no-color text-center">
+                                            <button type="submit" class="btn text-light text-uppercase btn-delete-all"><i class="fas fa-trash mr-3"></i> SIM</button>
+                                        </div>
+                                    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.prev_chegada)
-        </dt>
+                                    <div class="conteudo d-none">
+                                        <dl class="dl-horizontal">
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.data_saida)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.prev_chegada)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.data_saida)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.data_chegada)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.prev_chegada)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.data_chegada)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.prev_chegada)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.valor)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.data_chegada)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.valor)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.data_chegada)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NF)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.valor)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NF)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.valor)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tb_pessoa.nome_abreviado)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.NF)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.tb_pessoa.nome_abreviado)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.NF)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tb_pessoa1.nome_abreviado)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.tb_pessoa.nome_abreviado)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.tb_pessoa1.nome_abreviado)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.tb_pessoa.nome_abreviado)
+                                            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tb_veiculo.proprio_alugado)
-        </dt>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.tb_pessoa1.nome_abreviado)
+                                            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.tb_veiculo.proprio_alugado)
-        </dd>
+                                            <dd>
+                                                @Html.DisplayFor(model => model.tb_pessoa1.nome_abreviado)
+                                            </dd>
 
-    </dl>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => model.tb_veiculo.proprio_alugado)
+                                            </dt>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                                            <dd>
+                                                @Html.DisplayFor(model => model.tb_veiculo.proprio_alugado)
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    }
-</div>
+    </div>
+</section>

@@ -4,74 +4,92 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+@*Breadcrumb*@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item">Editar</li>
+    <li class="breadcrumb-item active">@Html.DisplayFor(model => model.cod_manutencao)</li>
+</ol>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>tb_manutencao</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.cod_manutencao)
+<section class="container-viagens">
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Editar a manutenção do @Html.DisplayFor(model => model.tb_veiculo.modelo)</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.cod_veiculo, "cod_veiculo", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("cod_veiculo", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.cod_veiculo, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.cod_oficina, "cod_oficina", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("cod_oficina", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.cod_oficina, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+                        <div class="form-row">
+                            <div class="col-12 px-3">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.cod_manutencao)
+                            </div>
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.tipo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.tipo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.tipo, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                            <div class="form-group col-12 mt-4">
+                                <div class="d-flex flex-column flex-md-row justify-content-center">
+                                    <div class="item-bloco col">
+                                        <label>Veículo <sup class="text-danger">*</sup></label>
+                                        @Html.DropDownList("cod_veiculo", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.cod_veiculo, "", new { @class = "text-danger" })
+                                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.motivo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.motivo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.motivo, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                    @*<div class="item-bloco col">
+                                            <label>Oficina <sup class="text-danger">*</sup></label>
+                                            @Html.DropDownList("cod_oficina", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.cod_oficina, "", new { @class = "text-danger" })
+                                        </div>*@
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.data, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.data, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.data, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                    <div class="item-bloco col">
+                                        <label>Tipo de manutenção <sup class="text-danger">*</sup></label>
+                                        @Html.EditorFor(model => model.tipo, new { htmlAttributes = new { @class = "form-control", id = "tipo_manutencao" } })
+                                        @Html.ValidationMessageFor(model => model.tipo, "", new { @class = "text-danger" })
+                                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.valor, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.valor, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.valor, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                    <div class="item-bloco col">
+                                        <label>Motivo da manutenção <sup class="text-danger">*</sup></label>
+                                        @Html.EditorFor(model => model.motivo, new { htmlAttributes = new { @class = "form-control", id = "motivo_manutencao" } })
+                                        @Html.ValidationMessageFor(model => model.motivo, "", new { @class = "text-danger" })
+                                    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                                    <div class="item-bloco col">
+                                        <label>Data da manutenção <sup class="text-danger">*</sup></label>
+                                        @Html.EditorFor(model => model.data, new { htmlAttributes = new { @class = "form-control", id = "data_manutencao" } })
+                                        @Html.ValidationMessageFor(model => model.data, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="item-bloco col">
+                                        <label>Valor da manutenção <sup class="text-danger">*</sup></label>
+                                        @Html.EditorFor(model => model.valor, new { htmlAttributes = new { @class = "form-control", id = "valor_manutencao" } })
+                                        @Html.ValidationMessageFor(model => model.valor, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-12">
+                                <div class="d-flex flex-column flex-md-row justify-content-between">
+                                    <div class="item-bloco pr-3">
+                                        <a href="/Manutencoes" class="btn btn-default bg-danger"><i class="fas fa-times mr-3"></i> Cancelar</a>
+
+                                    </div>
+                                    <div class="item-bloco pr-3">
+                                        <button type="submit" class="btn btn-default"><i class="far fa-save mr-3"></i> Salvar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+</section>

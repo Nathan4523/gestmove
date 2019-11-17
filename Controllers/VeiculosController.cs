@@ -18,7 +18,8 @@ namespace Gestmove.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            //var motoristas = db.tb_pessoa.Select(x => new { x.ID_pessoa, x.nome_abreviado });
+            var tb_veiculo = db.tb_locacao.Include(t => t.tb_pessoa).Include(t => t.tb_veiculo);
+
             return View(db.tb_veiculo.ToList());
         }
 
@@ -76,6 +77,9 @@ namespace Gestmove.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            var clientes = db.tb_pessoa.Select(x => new { x.ID_pessoa, x.tipo, x.nome_abreviado }).Where(s => s.tipo == 2);
+            ViewBag.cod_fornecedor = new SelectList(clientes, "ID_pessoa", "nome_abreviado");
+
             tb_veiculo tb_veiculo = db.tb_veiculo.Find(id);
             if (tb_veiculo == null)
             {

@@ -4,63 +4,93 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@*Breadcrumb*@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item">Detalhes</li>
+    <li class="breadcrumb-item active">@Html.DisplayFor(model => model.cod_manutencao)</li>
+</ol>
 
-<div>
-    <h4>tb_manutencao</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.tipo)
-        </dt>
+<section class="container-manutencoes">
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mt-5">
+                        <div class="col-md-8 offset-md-2 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <i class="fas fa-hammer mr-3"></i> Detalhes da manutenção do @Html.DisplayFor(model => model.tb_veiculo.modelo)
+                                </div>
+                                <div class="card-body">
+                                    <div class="tab-content border-0" id="nav-tabContent">
+                                        <div class="tab-pane fade active show" id="list-pessoais" role="tabpanel" aria-labelledby="list-home-list">
+                                            <div class="list-view">
+                                                <h4>
+                                                    Veículo
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.tipo)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.tb_veiculo.modelo)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.motivo)
-        </dt>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Tipo de manutenção
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.motivo)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.tipo)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.data)
-        </dt>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Motivo da manutenção
+                                                </h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.data)
-        </dd>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.motivo)
+                                                </p>
+                                            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.valor)
-        </dt>
+                                            <hr />
 
-        <dd>
-            @Html.DisplayFor(model => model.valor)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Data da manutenção
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tb_pessoa.nome_abreviado)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.data)
+                                                </p>
+                                            </div>
+                                            <hr>
 
-        <dd>
-            @Html.DisplayFor(model => model.tb_pessoa.nome_abreviado)
-        </dd>
+                                            <div class="list-view">
+                                                <h4>
+                                                    Valor da manutenção
+                                                </h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tb_veiculo.proprio_alugado)
-        </dt>
+                                                <p>
+                                                    @Html.DisplayFor(model => model.valor)
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.tb_veiculo.proprio_alugado)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.cod_manutencao }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                            <a href="/Manutencoes" class="btn btn-default text-center">
+                                <i class="fas fa-arrow-left mr-3"></i> Voltar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

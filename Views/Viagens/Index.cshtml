@@ -4,72 +4,71 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@*Breadcrumb*@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item">Viagens</li>
+    <li class="breadcrumb-item active">Todos</li>
+</ol>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.data_saida)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.prev_chegada)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.data_chegada)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.valor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NF)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tb_pessoa.nome_abreviado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tb_pessoa1.nome_abreviado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tb_veiculo.proprio_alugado)
-        </th>
-        <th></th>
-    </tr>
+<section class="container-viagens">
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-8">
+                            <h2>Todas as viagens</h2>
+                        </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.data_saida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.prev_chegada)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.data_chegada)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.valor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NF)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tb_pessoa.nome_abreviado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tb_pessoa1.nome_abreviado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tb_veiculo.proprio_alugado)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.cod_viagem }) |
-            @Html.ActionLink("Details", "Details", new { id=item.cod_viagem }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.cod_viagem })
-        </td>
-    </tr>
-}
+                        <div class="col-4 d-flex justify-content-end">
+                            <a href="/Viagens/Create" class="btn btn-add"><i class="fas fa-plus mr-3"></i> Novo</a>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <table class="table table-responsive-sm table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Data de saída</th>
+                                        <th>Data de chegada</th>
+                                        <th>Valor</th>
+                                        <th>Motorista</th>
+                                        <th>Cliente</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.data_saida)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.data_chegada)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.valor)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.tb_pessoa1.nome_abreviado)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.tb_pessoa.nome_abreviado)</td>
 
-</table>
+                                            <td class="links-acoes">
+                                                <a href="/Viagens/Edit/@Html.DisplayFor(modelItem => item.cod_viagem)" class="btn-funcoes btn-edit">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+
+                                                <a href="/Viagens/Details/@Html.DisplayFor(modelItem => item.cod_viagem)" class="btn-funcoes btn-show mx-3">
+                                                    <i class="far fa-eye"></i>
+                                                </a>
+
+                                                <a href="/Viagens/Delete/@Html.DisplayFor(modelItem => item.cod_viagem)" class="btn-funcoes btn-delete">
+                                                    <i class="far fa-trash-alt text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

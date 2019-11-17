@@ -4,84 +4,71 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@*Breadcrumb*@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item">Veículos</li>
+    <li class="breadcrumb-item active">Todos</li>
+</ol>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.proprio_alugado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cod_fornecedor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.placa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.uf)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.chassi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tipo_chassi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.marca)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.modelo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.km)
-        </th>
-        <th></th>
-    </tr>
+<section class="container-veiculos">
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-8">
+                            <h2>Todos os veiculos</h2>
+                        </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.proprio_alugado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cod_fornecedor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.placa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.uf)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.chassi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tipo_chassi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.marca)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.modelo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.km)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.cod_veiculo }) |
-            @Html.ActionLink("Details", "Details", new { id=item.cod_veiculo }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.cod_veiculo })
-        </td>
-    </tr>
-}
+                        <div class="col-4 d-flex justify-content-end">
+                            <a href="/Veiculos/Create" class="btn btn-add"><i class="fas fa-plus mr-3"></i> Novo</a>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <table class="table table-responsive-sm table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Modelo</th>
+                                        <th>Marca</th>
+                                        <th>Placa</th>
+                                        <th>Fornecedor</th>
+                                        <th>Chassi</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => item.modelo)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.marca)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.placa)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.cod_fornecedor)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.chassi)</td>
 
-</table>
+                                        <td class="links-acoes">
+                                            <a href="/Veiculos/Edit/@Html.DisplayFor(modelItem => item.cod_veiculo)" class="btn-funcoes btn-edit">
+                                                <i class="far fa-edit"></i>
+                                            </a>
+
+                                            <a href="/Veiculos/Details/@Html.DisplayFor(modelItem => item.cod_veiculo)" class="btn-funcoes btn-show mx-3">
+                                                <i class="far fa-eye"></i>
+                                            </a>
+
+                                            <a href="/Veiculos/Delete/@Html.DisplayFor(modelItem => item.cod_veiculo)" class="btn-funcoes btn-delete">
+                                                <i class="far fa-trash-alt text-danger"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
