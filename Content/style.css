@@ -58,6 +58,12 @@
 /*
     *Menu top
 */
+.navbar-brand {
+    background-image: url('../images/logo-png.png');
+    background-size: contain;
+    background-position: 50% center;
+    background-repeat: no-repeat;
+}
 .app-header .navbar-nav .nav-item .nav-link h5 {
     color: #001f3e;
     font-weight: 400;
