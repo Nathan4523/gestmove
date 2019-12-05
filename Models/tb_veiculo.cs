@@ -20,6 +20,7 @@ namespace Gestmove.Models
             this.tb_locacao = new HashSet<tb_locacao>();
             this.tb_manutencao = new HashSet<tb_manutencao>();
             this.tb_ocorrencia = new HashSet<tb_ocorrencia>();
+            this.tb_seguro = new HashSet<tb_seguro>();
             this.tb_viagem = new HashSet<tb_viagem>();
         }
     
@@ -36,6 +37,7 @@ namespace Gestmove.Models
         public Nullable<int> km { get; set; }
         public string combustivel { get; set; }
         public string observacao { get; set; }
+        public string disponivel { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_locacao> tb_locacao { get; set; }
@@ -43,6 +45,8 @@ namespace Gestmove.Models
         public virtual ICollection<tb_manutencao> tb_manutencao { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_ocorrencia> tb_ocorrencia { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tb_seguro> tb_seguro { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_viagem> tb_viagem { get; set; }
     }

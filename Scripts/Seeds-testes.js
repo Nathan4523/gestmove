@@ -38,23 +38,23 @@
 //     * Rotina de veiculos
 //     */
 
-//    //let proprio_alugado = "Nao";
+    //let proprio_alugado = "Nao";
 
-//    //if (trueOrFalse == 1) {
-//    //    proprio_alugado = "Sim";
-//    //}
+    if (trueOrFalse == 1) {
+    proprio_alugado = "Sim";
+}
 
-//    //$("#proprio_alugado").val(proprio_alugado);
-//    //$("#placa").val("PSP5140");
-//    //$("#uf").val("AM");
-//    //$("#chassi").val("9bg116bw04c400001");
-//    //$("#tipo_chassi").val("2");
-//    //$("#marca").val("Volkswagen");
-//    //$("#modelo").val("Jetta 2020");
-//    //$("#cor").val("branco");
-//    //$("#km").val("0");
-//    //$("#combustivel").val("Flex");
-//    //$("#observacao").val("");
+$("#proprio_alugado").val("Sim");
+$("#placa").val("SVS5140");
+$("#uf").val("AM");
+$("#chassi").val("9bg116bw04c400001");
+$("#tipo_chassi").val("2");
+$("#marca").val("Bmw");
+$("#modelo").val("X5");
+$("#cor").val("Preto");
+$("#km").val("12000");
+//$("#combustivel").val("Eletrico");
+$("#observacao").val("Sem GPS");
 
 //    /**
 //    * Rotina de viagens

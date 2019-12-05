@@ -12,19 +12,15 @@ namespace Gestmove.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_ocorrencia
+    public partial class tb_seguro
     {
-        public int cod_ocorrencia { get; set; }
-        public int cod_viagem { get; set; }
-        public Nullable<int> cod_motorista { get; set; }
-        public int cod_veiculo { get; set; }
-        public string motivo { get; set; }
-        public Nullable<int> pontos { get; set; }
-        public Nullable<decimal> valor { get; set; }
-        public string obs_motorista { get; set; }
+        public int id_seguro { get; set; }
+        public Nullable<int> cnh { get; set; }
+        public Nullable<int> rg { get; set; }
+        public Nullable<int> crv { get; set; }
+        public Nullable<int> crvl { get; set; }
+        public Nullable<int> cod_veiculo { get; set; }
     
-        public virtual tb_viagem tb_viagem { get; set; }
         public virtual tb_veiculo tb_veiculo { get; set; }
-        public virtual tb_pessoa tb_pessoa { get; set; }
     }
 }

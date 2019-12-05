@@ -35,5 +35,6 @@ namespace Gestmove.Models
         public virtual DbSet<tb_posto> tb_posto { get; set; }
         public virtual DbSet<tb_veiculo> tb_veiculo { get; set; }
         public virtual DbSet<tb_viagem> tb_viagem { get; set; }
+        public virtual DbSet<tb_seguro> tb_seguro { get; set; }
     }
 }

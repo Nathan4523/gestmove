@@ -273,3 +273,30 @@
 .container-locacoes .card .card-body .list-group .active {
     background-color: #001f3e;
 }
+
+/**
+   * Módulo Seguros
+*/
+
+.container-seguros table .links-acoes > .btn-funcoes > svg {
+    color: #000;
+}
+
+.container-seguros table .links-acoes .btn-edit:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-seguros table .links-acoes .btn-show:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-seguros table .links-acoes .btn-delete:hover > svg {
+    color: #001f3e;
+    transition: 0.3s;
+}
+
+.container-seguros .card .card-body .list-group .active {
+    background-color: #001f3e;
+}

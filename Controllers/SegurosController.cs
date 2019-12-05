@@ -10,20 +10,19 @@ using Gestmove.Models;
 
 namespace Gestmove.Controllers
 {
-    public class VeiculosController : Controller
+    public class SegurosController : Controller
     {
         private bd_gestmoveEntities db = new bd_gestmoveEntities();
 
-        // GET: Veiculos
+        // GET: Seguros
         [Authorize]
         public ActionResult Index()
         {
-            var tb_veiculo = db.tb_locacao.Include(t => t.tb_pessoa).Include(t => t.tb_veiculo);
-
-            return View(db.tb_veiculo.ToList());
+            var tb_seguro = db.tb_seguro.Include(t => t.tb_veiculo);
+            return View(tb_seguro.ToList());
         }
 
-        // GET: Veiculos/Details/5
+        // GET: Seguros/Details/5
         [Authorize]
         public ActionResult Details(int? id)
         {
@@ -31,45 +30,41 @@ namespace Gestmove.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tb_veiculo tb_veiculo = db.tb_veiculo.Find(id);
-            if (tb_veiculo == null)
+            tb_seguro tb_seguro = db.tb_seguro.Find(id);
+            if (tb_seguro == null)
             {
                 return HttpNotFound();
             }
-            return View(tb_veiculo);
+            return View(tb_seguro);
         }
 
-        // GET: Veiculos/Create
+        // GET: Seguros/Create
         [Authorize]
         public ActionResult Create()
         {
-            var clientes = db.tb_pessoa.Select(x => new { x.ID_pessoa, x.tipo, x.nome_abreviado }).Where(s => s.tipo == 2);
-            ViewBag.cod_fornecedor = new SelectList(clientes, "ID_pessoa", "nome_abreviado");
-            
+            ViewBag.cod_veiculo = new SelectList(db.tb_veiculo, "cod_veiculo", "proprio_alugado");
             return View();
         }
 
-        // POST: Veiculos/Create
+        // POST: Seguros/Create
         // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "proprio_alugado,cod_fornecedor,placa,uf,chassi,tipo_chassi,marca,modelo,cor,km,combustivel,observacao, disponivel")] tb_veiculo tb_veiculo)
+        public ActionResult Create([Bind(Include = "id_seguro,cnh,rg,crv,crvl,cod_veiculo")] tb_seguro tb_seguro)
         {
             if (ModelState.IsValid)
             {
-                db.tb_veiculo.Add(tb_veiculo);
+                db.tb_seguro.Add(tb_seguro);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            var clientes = db.tb_pessoa.Select(x => new { x.ID_pessoa, x.tipo, x.nome_abreviado }).Where(s => s.tipo == 2);
-            ViewBag.cod_fornecedor = new SelectList(clientes, "ID_pessoa", "nome_abreviado");
-
-            return View(tb_veiculo);
+            ViewBag.cod_veiculo = new SelectList(db.tb_veiculo, "cod_veiculo", "proprio_alugado", tb_seguro.cod_veiculo);
+            return View(tb_seguro);
         }
 
-        // GET: Veiculos/Edit/5
+        // GET: Seguros/Edit/5
         [Authorize]
         public ActionResult Edit(int? id)
         {
@@ -77,34 +72,33 @@ namespace Gestmove.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var clientes = db.tb_pessoa.Select(x => new { x.ID_pessoa, x.tipo, x.nome_abreviado }).Where(s => s.tipo == 2);
-            ViewBag.cod_fornecedor = new SelectList(clientes, "ID_pessoa", "nome_abreviado");
-
-            tb_veiculo tb_veiculo = db.tb_veiculo.Find(id);
-            if (tb_veiculo == null)
+            tb_seguro tb_seguro = db.tb_seguro.Find(id);
+            if (tb_seguro == null)
             {
                 return HttpNotFound();
             }
-            return View(tb_veiculo);
+            ViewBag.cod_veiculo = new SelectList(db.tb_veiculo, "cod_veiculo", "proprio_alugado", tb_seguro.cod_veiculo);
+            return View(tb_seguro);
         }
 
-        // POST: Veiculos/Edit/5
+        // POST: Seguros/Edit/5
         // Para se proteger de mais ataques, ative as propriedades específicas a que você quer se conectar. Para 
         // obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "cod_veiculo,proprio_alugado,cod_fornecedor,placa,uf,chassi,tipo_chassi,marca,modelo,cor,km,combustivel,observacao")] tb_veiculo tb_veiculo)
+        public ActionResult Edit([Bind(Include = "id_seguro,cnh,rg,crv,crvl,cod_veiculo")] tb_seguro tb_seguro)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tb_veiculo).State = EntityState.Modified;
+                db.Entry(tb_seguro).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(tb_veiculo);
+            ViewBag.cod_veiculo = new SelectList(db.tb_veiculo, "cod_veiculo", "proprio_alugado", tb_seguro.cod_veiculo);
+            return View(tb_seguro);
         }
 
-        // GET: Veiculos/Delete/5
+        // GET: Seguros/Delete/5
         [Authorize]
         public ActionResult Delete(int? id)
         {
@@ -112,21 +106,21 @@ namespace Gestmove.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tb_veiculo tb_veiculo = db.tb_veiculo.Find(id);
-            if (tb_veiculo == null)
+            tb_seguro tb_seguro = db.tb_seguro.Find(id);
+            if (tb_seguro == null)
             {
                 return HttpNotFound();
             }
-            return View(tb_veiculo);
+            return View(tb_seguro);
         }
 
-        // POST: Veiculos/Delete/5
+        // POST: Seguros/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tb_veiculo tb_veiculo = db.tb_veiculo.Find(id);
-            db.tb_veiculo.Remove(tb_veiculo);
+            tb_seguro tb_seguro = db.tb_seguro.Find(id);
+            db.tb_seguro.Remove(tb_seguro);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -78,17 +78,17 @@
     <Key>
       <PropertyRef Name="cod_ocorrencia" />
     </Key>
-    <Property Name="cod_ocorrencia" Type="Int32" Nullable="false" />
+    <Property Name="cod_ocorrencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="cod_viagem" Type="Int32" Nullable="false" />
-    <Property Name="cod_motorista" Type="Int32" Nullable="false" />
+    <Property Name="cod_motorista" Type="Int32" />
     <Property Name="cod_veiculo" Type="Int32" Nullable="false" />
-    <Property Name="motivo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="motivo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
     <Property Name="pontos" Type="Int32" />
-    <Property Name="valor" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="valor" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="obs_motorista" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_viagem" Relationship="Self.FK__tb_ocorre__cod_v__06CD04F7" FromRole="tb_ocorrencia" ToRole="tb_viagem" />
+    <NavigationProperty Name="tb_veiculo" Relationship="Self.FK__tb_ocorre__cod_v__07C12930" FromRole="tb_ocorrencia" ToRole="tb_veiculo" />
     <NavigationProperty Name="tb_pessoa" Relationship="Self.FK_tb_ocorrencia_tb_pessoa" FromRole="tb_ocorrencia" ToRole="tb_pessoa" />
-    <NavigationProperty Name="tb_veiculo" Relationship="Self.FK_tb_ocorrencia_tb_veiculo" FromRole="tb_ocorrencia" ToRole="tb_veiculo" />
-    <NavigationProperty Name="tb_viagem" Relationship="Self.FK_tb_ocorrencia_tb_viagem" FromRole="tb_ocorrencia" ToRole="tb_viagem" />
   </EntityType>
   <EntityType Name="tb_pessoa">
     <Key>
@@ -161,9 +161,11 @@
     <Property Name="km" Type="Int32" />
     <Property Name="combustivel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="observacao" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="disponivel" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="tb_locacao" Relationship="Self.FK_tb_locacao_tb_veiculo" FromRole="tb_veiculo" ToRole="tb_locacao" />
     <NavigationProperty Name="tb_manutencao" Relationship="Self.FK_tb_manutencao_tb_veiculo" FromRole="tb_veiculo" ToRole="tb_manutencao" />
-    <NavigationProperty Name="tb_ocorrencia" Relationship="Self.FK_tb_ocorrencia_tb_veiculo" FromRole="tb_veiculo" ToRole="tb_ocorrencia" />
+    <NavigationProperty Name="tb_ocorrencia" Relationship="Self.FK__tb_ocorre__cod_v__07C12930" FromRole="tb_veiculo" ToRole="tb_ocorrencia" />
+    <NavigationProperty Name="tb_seguro" Relationship="Self.FK__tb_seguro__cod_v__02084FDA" FromRole="tb_veiculo" ToRole="tb_seguro" />
     <NavigationProperty Name="tb_viagem" Relationship="Self.FK_tb_viagem_tb_veiculo" FromRole="tb_veiculo" ToRole="tb_viagem" />
   </EntityType>
   <EntityType Name="tb_viagem">
@@ -179,10 +181,22 @@
     <Property Name="data_chegada" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="valor" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="NF" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="tb_ocorrencia" Relationship="Self.FK_tb_ocorrencia_tb_viagem" FromRole="tb_viagem" ToRole="tb_ocorrencia" />
+    <NavigationProperty Name="tb_ocorrencia" Relationship="Self.FK__tb_ocorre__cod_v__06CD04F7" FromRole="tb_viagem" ToRole="tb_ocorrencia" />
     <NavigationProperty Name="tb_pessoa" Relationship="Self.FK_tb_viagem_tb_pessoa" FromRole="tb_viagem" ToRole="tb_pessoa" />
     <NavigationProperty Name="tb_pessoa1" Relationship="Self.FK_tb_viagem_tb_pessoa_02" FromRole="tb_viagem" ToRole="tb_pessoa" />
     <NavigationProperty Name="tb_veiculo" Relationship="Self.FK_tb_viagem_tb_veiculo" FromRole="tb_viagem" ToRole="tb_veiculo" />
+  </EntityType>
+  <EntityType Name="tb_seguro">
+    <Key>
+      <PropertyRef Name="id_seguro" />
+    </Key>
+    <Property Name="id_seguro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cnh" Type="Int32" />
+    <Property Name="rg" Type="Int32" />
+    <Property Name="crv" Type="Int32" />
+    <Property Name="crvl" Type="Int32" />
+    <Property Name="cod_veiculo" Type="Int32" />
+    <NavigationProperty Name="tb_veiculo" Relationship="Self.FK__tb_seguro__cod_v__02084FDA" FromRole="tb_seguro" ToRole="tb_veiculo" />
   </EntityType>
   <Association Name="FK_tb_locacao_tb_pessoa">
     <End Role="tb_pessoa" Type="Self.tb_pessoa" Multiplicity="1" />
@@ -232,19 +246,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_tb_ocorrencia_tb_pessoa">
-    <End Role="tb_pessoa" Type="Self.tb_pessoa" Multiplicity="1" />
+  <Association Name="FK__tb_ocorre__cod_v__06CD04F7">
+    <End Role="tb_viagem" Type="Self.tb_viagem" Multiplicity="1" />
     <End Role="tb_ocorrencia" Type="Self.tb_ocorrencia" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tb_pessoa">
-        <PropertyRef Name="ID_pessoa" />
+      <Principal Role="tb_viagem">
+        <PropertyRef Name="cod_viagem" />
       </Principal>
       <Dependent Role="tb_ocorrencia">
-        <PropertyRef Name="cod_motorista" />
+        <PropertyRef Name="cod_viagem" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_tb_ocorrencia_tb_veiculo">
+  <Association Name="FK__tb_ocorre__cod_v__07C12930">
     <End Role="tb_veiculo" Type="Self.tb_veiculo" Multiplicity="1" />
     <End Role="tb_ocorrencia" Type="Self.tb_ocorrencia" Multiplicity="*" />
     <ReferentialConstraint>
@@ -256,15 +270,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_tb_ocorrencia_tb_viagem">
-    <End Role="tb_viagem" Type="Self.tb_viagem" Multiplicity="1" />
+  <Association Name="FK_tb_ocorrencia_tb_pessoa">
+    <End Role="tb_pessoa" Type="Self.tb_pessoa" Multiplicity="0..1" />
     <End Role="tb_ocorrencia" Type="Self.tb_ocorrencia" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tb_viagem">
-        <PropertyRef Name="cod_viagem" />
+      <Principal Role="tb_pessoa">
+        <PropertyRef Name="ID_pessoa" />
       </Principal>
       <Dependent Role="tb_ocorrencia">
-        <PropertyRef Name="cod_viagem" />
+        <PropertyRef Name="cod_motorista" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -292,6 +306,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__tb_seguro__cod_v__02084FDA">
+    <End Role="tb_veiculo" Type="Self.tb_veiculo" Multiplicity="0..1" />
+    <End Role="tb_seguro" Type="Self.tb_seguro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_veiculo">
+        <PropertyRef Name="cod_veiculo" />
+      </Principal>
+      <Dependent Role="tb_seguro">
+        <PropertyRef Name="cod_veiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_tb_viagem_tb_veiculo">
     <End Role="tb_veiculo" Type="Self.tb_veiculo" Multiplicity="1" />
     <End Role="tb_viagem" Type="Self.tb_viagem" Multiplicity="*" />
@@ -315,6 +341,7 @@
     <EntitySet Name="tb_posto" EntityType="Self.tb_posto" />
     <EntitySet Name="tb_veiculo" EntityType="Self.tb_veiculo" />
     <EntitySet Name="tb_viagem" EntityType="Self.tb_viagem" />
+    <EntitySet Name="tb_seguro" EntityType="Self.tb_seguro" />
     <AssociationSet Name="FK_tb_locacao_tb_pessoa" Association="Self.FK_tb_locacao_tb_pessoa">
       <End Role="tb_pessoa" EntitySet="tb_pessoa" />
       <End Role="tb_locacao" EntitySet="tb_locacao" />
@@ -331,16 +358,16 @@
       <End Role="tb_veiculo" EntitySet="tb_veiculo" />
       <End Role="tb_manutencao" EntitySet="tb_manutencao" />
     </AssociationSet>
-    <AssociationSet Name="FK_tb_ocorrencia_tb_pessoa" Association="Self.FK_tb_ocorrencia_tb_pessoa">
-      <End Role="tb_pessoa" EntitySet="tb_pessoa" />
+    <AssociationSet Name="FK__tb_ocorre__cod_v__06CD04F7" Association="Self.FK__tb_ocorre__cod_v__06CD04F7">
+      <End Role="tb_viagem" EntitySet="tb_viagem" />
       <End Role="tb_ocorrencia" EntitySet="tb_ocorrencia" />
     </AssociationSet>
-    <AssociationSet Name="FK_tb_ocorrencia_tb_veiculo" Association="Self.FK_tb_ocorrencia_tb_veiculo">
+    <AssociationSet Name="FK__tb_ocorre__cod_v__07C12930" Association="Self.FK__tb_ocorre__cod_v__07C12930">
       <End Role="tb_veiculo" EntitySet="tb_veiculo" />
       <End Role="tb_ocorrencia" EntitySet="tb_ocorrencia" />
     </AssociationSet>
-    <AssociationSet Name="FK_tb_ocorrencia_tb_viagem" Association="Self.FK_tb_ocorrencia_tb_viagem">
-      <End Role="tb_viagem" EntitySet="tb_viagem" />
+    <AssociationSet Name="FK_tb_ocorrencia_tb_pessoa" Association="Self.FK_tb_ocorrencia_tb_pessoa">
+      <End Role="tb_pessoa" EntitySet="tb_pessoa" />
       <End Role="tb_ocorrencia" EntitySet="tb_ocorrencia" />
     </AssociationSet>
     <AssociationSet Name="FK_tb_viagem_tb_pessoa" Association="Self.FK_tb_viagem_tb_pessoa">
@@ -350,6 +377,10 @@
     <AssociationSet Name="FK_tb_viagem_tb_pessoa_02" Association="Self.FK_tb_viagem_tb_pessoa_02">
       <End Role="tb_pessoa" EntitySet="tb_pessoa" />
       <End Role="tb_viagem" EntitySet="tb_viagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tb_seguro__cod_v__02084FDA" Association="Self.FK__tb_seguro__cod_v__02084FDA">
+      <End Role="tb_veiculo" EntitySet="tb_veiculo" />
+      <End Role="tb_seguro" EntitySet="tb_seguro" />
     </AssociationSet>
     <AssociationSet Name="FK_tb_viagem_tb_veiculo" Association="Self.FK_tb_viagem_tb_veiculo">
       <End Role="tb_veiculo" EntitySet="tb_veiculo" />

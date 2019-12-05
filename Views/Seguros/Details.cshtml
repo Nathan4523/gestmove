@@ -1,0 +1,58 @@
+﻿@model Gestmove.Models.tb_seguro
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tb_seguro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cnh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cnh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.crv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.crv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.crvl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.crvl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_veiculo.proprio_alugado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_veiculo.proprio_alugado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_seguro }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

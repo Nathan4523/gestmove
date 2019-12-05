@@ -38,7 +38,21 @@
                                 <div class="d-flex flex-column flex-md-row justify-content-center">
                                     <div class="item-bloco col">
                                         <label>Disponível para aluguel? <sup class="text-danger">*</sup></label>
-                                        @Html.EditorFor(model => model.proprio_alugado, new { htmlAttributes = new { @class = "form-control", id = "proprio_alugado" } })
+                                        @*@Html.EditorFor(model => model.proprio_alugado, new { htmlAttributes = new { @class = "form-control", id = "proprio_alugado" } })*@
+                                        <select name="proprio_alugado" id="proprio_alugado" class="custom-select form-control">
+                                            <option value="Proprio">Próprio</option>
+                                            <option value="Alugado">Alugado</option>
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.proprio_alugado, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="item-bloco col">
+                                        <label>Disponível para aluguel? <sup class="text-danger">*</sup></label>
+                                        @*@Html.EditorFor(model => model.disponivel, new { htmlAttributes = new { @class = "form-control", id = "disponivel" } })*@
+                                        <select name="disponivel" id="disponivel" class="custom-select form-control">
+                                            <option value="Sim">Sim</option>
+                                            <option value="Não">Não</option>
+                                        </select>
                                         @Html.ValidationMessageFor(model => model.proprio_alugado, "", new { @class = "text-danger" })
                                     </div>
 
@@ -115,7 +129,13 @@
 
                                     <div class="item-bloco col">
                                         <label>Tipo combustivel</label>
-                                        @Html.EditorFor(model => model.combustivel, new { htmlAttributes = new { @class = "form-control", id = "combustivel" } })
+                                        @*@Html.EditorFor(model => model.combustivel, new { htmlAttributes = new { @class = "form-control", id = "combustivel" } })*@
+                                    <select name="combustivel" id="combustivel" class="custom-select form-control">
+                                        <option value="Gasolina">Gasolina</option>
+                                        <option value="Alcool">Álcool</option>
+                                        <option value="Flex">Flex</option>
+                                        <option value="Eletrico">Elétrico</option>
+                                    </select>
                                         @Html.ValidationMessageFor(model => model.combustivel, "", new { @class = "text-danger" })
                                     </div>
 

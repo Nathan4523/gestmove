@@ -139,6 +139,7 @@
     <Compile Include="Controllers\ManutencoesController.cs" />
     <Compile Include="Controllers\OcorrenciasController.cs" />
     <Compile Include="Controllers\PessoasController.cs" />
+    <Compile Include="Controllers\SegurosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\VeiculosController.cs" />
     <Compile Include="Controllers\ViagensController.cs" />
@@ -182,6 +183,9 @@
       <DependentUpon>GestMoveModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tb_posto.cs">
+      <DependentUpon>GestMoveModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tb_seguro.cs">
       <DependentUpon>GestMoveModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tb_veiculo.cs">
@@ -288,6 +292,11 @@
     <Content Include="Views\Ocorrencias\Details.cshtml" />
     <Content Include="Views\Ocorrencias\Edit.cshtml" />
     <Content Include="Views\Ocorrencias\Index.cshtml" />
+    <Content Include="Views\Seguros\Create.cshtml" />
+    <Content Include="Views\Seguros\Delete.cshtml" />
+    <Content Include="Views\Seguros\Details.cshtml" />
+    <Content Include="Views\Seguros\Edit.cshtml" />
+    <Content Include="Views\Seguros\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

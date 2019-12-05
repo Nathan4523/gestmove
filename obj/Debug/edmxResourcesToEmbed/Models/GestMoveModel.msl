@@ -157,6 +157,7 @@
           <ScalarProperty Name="km" ColumnName="km" />
           <ScalarProperty Name="combustivel" ColumnName="combustivel" />
           <ScalarProperty Name="observacao" ColumnName="observacao" />
+          <ScalarProperty Name="disponivel" ColumnName="disponivel" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -172,6 +173,18 @@
           <ScalarProperty Name="data_chegada" ColumnName="data_chegada" />
           <ScalarProperty Name="valor" ColumnName="valor" />
           <ScalarProperty Name="NF" ColumnName="NF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_seguro">
+      <EntityTypeMapping TypeName="bd_gestmoveModel.tb_seguro">
+        <MappingFragment StoreEntitySet="tb_seguro">
+          <ScalarProperty Name="id_seguro" ColumnName="id_seguro" />
+          <ScalarProperty Name="cnh" ColumnName="cnh" />
+          <ScalarProperty Name="rg" ColumnName="rg" />
+          <ScalarProperty Name="crv" ColumnName="crv" />
+          <ScalarProperty Name="crvl" ColumnName="crvl" />
+          <ScalarProperty Name="cod_veiculo" ColumnName="cod_veiculo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

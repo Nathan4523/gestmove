@@ -59,7 +59,7 @@ namespace Gestmove.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "cod_ocorrencia,cod_viagem,cod_motorista,cod_veiculo,motivo,pontos,valor,obs_motorista")] tb_ocorrencia tb_ocorrencia)
+        public ActionResult Create([Bind(Include = "cod_viagem,cod_motorista,cod_veiculo,motivo,pontos,valor,obs_motorista")] tb_ocorrencia tb_ocorrencia)
         {
             if (ModelState.IsValid)
             {
