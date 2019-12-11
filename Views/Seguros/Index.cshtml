@@ -22,7 +22,7 @@
                         </div>
 
                         <div class="col-4 d-flex justify-content-end">
-                            <a href="/Seguros/Create" class="btn btn-add"><i class="fas fa-plus mr-3"></i> Novo</a>
+                            <a href="#" onclick="alert('Em breve!')" class="btn btn-add">Em breve</a>
                         </div>
                     </div>
                     <div class="row mt-4">
@@ -49,16 +49,8 @@
                                             <td>@Html.DisplayFor(modelItem => item.tb_veiculo.proprio_alugado)</td>
 
                                             <td class="links-acoes">
-                                                <a href="/Seguros/Edit/@Html.DisplayFor(modelItem => item.id_seguro)" class="btn-funcoes btn-edit">
-                                                    <i class="far fa-edit"></i>
-                                                </a>
-
-                                                <a href="/Seguros/Details/@Html.DisplayFor(modelItem => item.id_seguro)" class="btn-funcoes btn-show mx-3">
+                                                <a href="#" onclick="alert('Em breve')" class="btn-funcoes btn-show mx-3">
                                                     <i class="far fa-eye"></i>
-                                                </a>
-
-                                                <a href="/Seguros/Delete/@Html.DisplayFor(modelItem => item.id_seguro)" class="btn-funcoes btn-delete">
-                                                    <i class="far fa-trash-alt text-danger"></i>
                                                 </a>
                                             </td>
                                         </tr>
